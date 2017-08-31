@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head profile="http://www.w3.org/2003/g/data-view">
+
+    <link rel="transformation" href="http://ns.inria.fr/grddl/rdfa/2007/09/19/RDFa2RDFXML.xsl"/>
+
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+
+    <meta name="AUTHOR" content="Diego Berrueta Muñoz" />
+    <meta name="COPYRIGHT" content="Copyright (c) 2007 Diego Berrueta Muñoz" />
+    <meta name="DESCRIPTION" content="Personal home page and blog of Diego Berrueta" />
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss/index.html%3Fsection=blog"/>
+    <link rel="meta" type="application/rdf+xml" title="SIOC" href="http://www.w3.org/2007/08/pyRdfa/extract?uri=http://berrueta.net/blog/20050326-1539"/>
+
+	<link rel="home" title="Home" href="../index.html" />
+
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="../sapphire.css" />
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="../mine.css" />
+
+	<link rel="stylesheet" type="text/css" media="print" href="../sapphireprint.css" />
+
+	<title>Diego Berrueta: Xalan y Javadoc</title>
+
+</head>
+
+
+
+<body>
+
+
+
+<div id="frame">
+
+
+
+<div id="accessibility">
+
+	<a href="20050326-1539.html#content" title="Go to content">Go to content</a> 
+
+	<a href="20050326-1539.html#nav" title="Go to navigation">Go to navigation</a> 
+
+</div> <!-- closes #accessibility -->
+
+
+
+<div id="header">
+
+	<h1><a href="../index.html">Diego Berrueta</a></h1>
+
+	<div id="nav">
+
+		<ul>
+
+			<li><a href="../index.html" title="Return to homepage">Home</a></li>
+
+			<li><a href="../blog.html" title="Read blog posts">Blog</a></li>
+
+			<li><a href="http://www.flickr.com/photos/berrueta/" title="Some of my photos">Gallery</a></li>
+
+		</ul>
+
+<!--
+		<p><a href="http://berrueta.net/rss/?section=blog" title="RSS Feed">Subscribe</a></p>
+-->
+
+	</div> <!-- closes #nav -->
+
+</div> <!-- closes #header -->
+
+
+
+<div id="middle">
+
+<div id="content">
+
+	
+
+<div instanceof="sioc:Forum" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" about="http://berrueta.net/blog#berrueta-blog">
+
+	
+		<div class="post" instanceof="sioc:Post" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" about="http://berrueta.net/blog/20050326-1539" >
+
+		<h2><a rel="bookmark" href="20050326-1539.html"><span property="dc:title">Xalan y&#160;Javadoc</span></a></h2>
+
+		<div property="sioc:content">
+		  <p>(This is a reprint of <a href="http://www.asturlinux.org/comunidad/node/496">the original post</a>)</p><p>Después de muchas pruebas, he conseguido procesar documentos de <a href="http://www.docbook.org/">DocBook</a> con <a href="http://ant.apache.org/">Ant</a> de una forma satisfactoria. Como sabemos todos los que hemos usado alguna vez DocBook XML, se necesita un procesador de XSLT para convertir el documento fuente, que está en XML, a otros formatos, como HTML. Las alternativas libres más conocidas son Xalan, Saxon y libxml/xsltproc; <a href="http://www.asturlinux.org/comunidad/node/view/437">ya hablé de ellas</a> hace unos meses. Por motivos variados, estaba especialmente interesado en superar las dificultades que encontré en su momento cuando probé Xalan. Así que me puse manos a la obra.</p>
+<!--break-->
+<p>
+En primer lugar, para que los <a href="http://www.w3.org/TR/2004/REC-xinclude-20041220/">XInclude</a> funcionen bien, hay que ajustar algunas variables para que Xalan use Xerces como analizador de XML. No basta con meter Xerces en el <i>CLASSPATH</i>: hay que evitar que Java use la versión de Xerces que incorpora en sus bibliotecas estándar. Los XInclude son muy interesantes porque permiten <a href="http://www.sagehill.net/docbookxsl/ModularDoc.html">partir las fuentes en XML</a> de un documento DocBook.</p><p>
+Luego ataqué el problema de los catálogos, que no había conseguido dominar entonces. Los <a href="http://www.sagehill.net/docbookxsl/ModularDoc.html">catálogos</a> son ficheros que indican a las aplicaciones XML (como Xerces y Xalan) dónde pueden encontrar los recursos que necesitan en el disco duro, sin acudir a la red. Gracias a ellos, las aplicaciones no tienen que descargar el DTD de DocBook continuamente, por ejemplo. Al final encontré el problema: el catálogo correspondiente a DocBook en Debian tiene una especificación de DOCTYPE, y por tanto, ¡se necesita un catálogo para el catálogo! Como no encontré la forma de hacer eso, estuve mirando un poco más y descubrí que el DOCTYPE no está en las fuentes originales de DocBook, sino que es un añadido del empaquetador para Debian. La solución fue fácil: usar el tarball original y pasar del paquete Debian (docbook-xml). Con esto conseguí procesar mis documentos DocBook sin conexión a la red, completamente en local.</p><p>
+Por último, me ocupé de la velocidad de procesamiento. Ciertamente, Xalan no es rápido. Transformar un documento mediano en mi iBook le lleva 34 segundos. Pero Xalan dispone de una característica muy interesante: puede funcionar como evaluador parcial, y generar un programa especializado en aplicar una transformación XSL concreta a cualquier entrada XML. En otras palabras: puede <i>compilar</i> una transformación XSL para generar un programa que la aplica. El truco se llama <a href="http://xml.apache.org/xalan-j/commandline_xsltc.html">XSLTC</a>, y tras bastantes ciclos de prueba y error (hasta que descubrí que <a href="http://xml.apache.org/xalan-j/commandline_xsltc.html">el parámetro <i>-xd</i></a> era obligatorio), conseguí hacerlo funcionar.</p><p>
+La primera transformación de un documento usando XSLTC lleva bastante tiempo. Para el mismo documento del ejemplo anterior, ahora tarda casi 49 segundos. Pero las siguientes transformaciones sobre otros documentos son más rápidas, de 23 segundos. Es evidente que el ahorro de tiempo es muy significativo si se pretenden transformar muchos documentos.</p><p>
+Hoy me he dedicado monográficamente a Xalan. Para mañana, intentaré echar un vistazo al debate que algunos bloggers mantienen sobre Javadoc (<a href="http://martinfowler.com/bliki/CodeAsDocumentation.html">primera intervención de Martin Fowler</a>, <a href="http://vafer.org/blog/tcurdt/archives/000183.html">réplica de Torsten Curdt</a>).</p>
+		</div>
+
+		<ul class="post-data">
+
+			<li class="comments"></li>
+
+			<li class="posted"><a href="20050326-1539.html">Posted 27 March, 01:39 AM</a><span property="dc:created" content="2005-03-27T01:39:00PST"/></li>
+
+		</ul>
+		<span rel="sioc:has_container" href="http://berrueta.net/blog#berrueta-blog"/>
+                <span rel="sioc:has_creator" href="http://berrueta.net/blog#berrueta-user"/>
+                <span rel="sioc:link" href="http://berrueta.net/blog/20050326-1539"/>
+                <span property="sioc:id" content="200"/>
+
+	</div>
+
+</div>
+
+<div instanceof="sioc:User" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" 
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" about="http://berrueta.net/blog#berrueta-user">
+  <span property="sioc:name" content="Diego Berrueta"/>
+  <a rel="rdfs:seeAlso" href="../foaf.rdf"/>
+  <a rel="sioc:account_of" href="../foaf.rdf#me"/>
+</div>
+
+</div> <!-- closes #content -->
+
+
+
+<div id="sidebar">
+
+<h3>Menu</h3>
+
+<ul id="menu">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="index.html">Blog</a></li>
+  <li><a href="../research/index.html">Research</a>
+  <ul>
+    <li><a href="../research/publications/index.html">Publications</a></li>
+    <li><a href="../research/projects/index.html">Projects</a></li>
+    <li><a href="../research/phd-research/index.html">PhD</a></li>
+    <li><a href="../research/reviewer/index.html">Reviewer</a></li>
+  </ul>
+  </li>
+  <li><a href="../teaching/index.html">Teaching</a>
+  <ul>
+    <li><a href="../teaching/courses/index.html">Courses</a></li>
+    <li><a href="../teaching/advised-projects/index.html">Advised projects</a></li>
+  </ul>
+  </li>
+  <li><a href="../freesoftware/index.html">Free software</a>
+  <ul>
+    <li><a href="../freesoftware/projects.html">Projects</a></li>
+    <li><a href="../freesoftware/charlas.html">Talks</a></li>
+    <li><a href="../freesoftware/publicaciones.html">Publications</a></li>
+  </ul>
+  </li>
+  <li><a href="../personal/index.html">Personal</a>
+  <ul>
+    <li><a href="http://www.flickr.com/photos/berrueta/">Photos at Flickr</a></li>
+    <li><a href="../personal/people.html">People</a></li>
+    <li><a href="../personal/trips.html">Past and upcoming trips</a></li>
+  </ul>
+  </li>
+</ul>
+
+<h3>Recent posts</h3>
+<ul>
+  <li><a href="new-horizons-new-blog.html" title="New horizons, new&#160;blog">New horizons, new&#160;blog</a></li><li><a href="rdfa-developer-and-trioo.html" title="RDFa Developer and&#160;Trioo">RDFa Developer and&#160;Trioo</a></li><li><a href="steamy.html" title="Steamy">Steamy</a></li><li><a href="xsparql.html" title="XSPARQL">XSPARQL</a></li><li><a href="terras.html" title="TeRRAS">TeRRAS</a></li>
+</ul>
+
+<!--
+<h3>Categories</h3><ul class="category_list">
+	<li><a href="http://berrueta.net/category/Apple/">Apple</a></li>
+	<li><a href="http://berrueta.net/category/Books/">Books</a></li>
+	<li><a href="http://berrueta.net/category/Conferences/">Conferences</a></li>
+	<li><a href="http://berrueta.net/category/Free-Software/">Free Software</a></li>
+	<li><a href="http://berrueta.net/category/Google/">Google</a></li>
+	<li><a href="http://berrueta.net/category/Mountains/">Mountains</a></li>
+	<li><a href="http://berrueta.net/category/Movies/">Movies</a></li>
+	<li><a href="http://berrueta.net/category/Publications/">Publications</a></li>
+	<li><a href="http://berrueta.net/category/Semantic-Web/">Semantic Web</a></li>
+	<li><a href="http://berrueta.net/category/Trips/">Trips</a></li>
+	<li><a href="http://berrueta.net/category/University/">University</a></li>
+</ul>
+-->
+
+<p><a href="../rss/index.html%3Fsection=blog"><img class="feedicon" src="../images/4.png" alt="XML icon"/> Syndicate my blog
+</a></p>
+
+<p><a href="../archive/index.html">Older posts</a></p>
+
+
+</div> <!-- closes #sidebar -->
+
+
+
+</div> <!-- closes #middle -->
+
+
+
+<div id="footer">
+
+	<p id="footertext"><a href="http://validator.w3.org/check?uri=referer">XHTML</a> <a href="http://www.w3.org/2007/08/pyRdfa/extract?uri=referer">with RDFa</a> <!--a href="http://localhost/cgi-bin/RDFa.py?uri=referer">test, don't click here</a--> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | Adapted from a <a href="http://www.kevinpottsdesign.com" title="Kansas City-based web design, graphic design and textpattern expert">design by Kevin Potts</a> | <a href="http://www.graphicpush.com/icons" title="Free Icons and Icon Sets">Icons from graphicPUSH</a> |
+
+	  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img class="ccicon" alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>
+	  (c) Diego Berrueta, 2007. Except otherwise noted, contents are published under a <a
+	    rel="license"
+	    href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons License</a>. Resources listed as publications or projects might be subject to other licenses.
+	</p>
+
+</div>
+
+
+
+</div> <!-- closes #frame -->
+
+
+<!-- Google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2220066-1";
+urchinTracker();
+</script>
+
+</body>
+
+</html>

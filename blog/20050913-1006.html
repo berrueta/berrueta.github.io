@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head profile="http://www.w3.org/2003/g/data-view">
+
+    <link rel="transformation" href="http://ns.inria.fr/grddl/rdfa/2007/09/19/RDFa2RDFXML.xsl"/>
+
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+
+    <meta name="AUTHOR" content="Diego Berrueta Muñoz" />
+    <meta name="COPYRIGHT" content="Copyright (c) 2007 Diego Berrueta Muñoz" />
+    <meta name="DESCRIPTION" content="Personal home page and blog of Diego Berrueta" />
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss/index.html%3Fsection=blog"/>
+    <link rel="meta" type="application/rdf+xml" title="SIOC" href="http://www.w3.org/2007/08/pyRdfa/extract?uri=http://berrueta.net/blog/20050913-1006"/>
+
+	<link rel="home" title="Home" href="../index.html" />
+
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="../sapphire.css" />
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="../mine.css" />
+
+	<link rel="stylesheet" type="text/css" media="print" href="../sapphireprint.css" />
+
+	<title>Diego Berrueta: Avances con Flumotion</title>
+
+</head>
+
+
+
+<body>
+
+
+
+<div id="frame">
+
+
+
+<div id="accessibility">
+
+	<a href="20050913-1006.html#content" title="Go to content">Go to content</a> 
+
+	<a href="20050913-1006.html#nav" title="Go to navigation">Go to navigation</a> 
+
+</div> <!-- closes #accessibility -->
+
+
+
+<div id="header">
+
+	<h1><a href="../index.html">Diego Berrueta</a></h1>
+
+	<div id="nav">
+
+		<ul>
+
+			<li><a href="../index.html" title="Return to homepage">Home</a></li>
+
+			<li><a href="../blog.html" title="Read blog posts">Blog</a></li>
+
+			<li><a href="http://www.flickr.com/photos/berrueta/" title="Some of my photos">Gallery</a></li>
+
+		</ul>
+
+<!--
+		<p><a href="http://berrueta.net/rss/?section=blog" title="RSS Feed">Subscribe</a></p>
+-->
+
+	</div> <!-- closes #nav -->
+
+</div> <!-- closes #header -->
+
+
+
+<div id="middle">
+
+<div id="content">
+
+	
+
+<div instanceof="sioc:Forum" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" about="http://berrueta.net/blog#berrueta-blog">
+
+	
+		<div class="post" instanceof="sioc:Post" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" about="http://berrueta.net/blog/20050913-1006" >
+
+		<h2><a rel="bookmark" href="20050913-1006.html"><span property="dc:title">Avances con&#160;Flumotion</span></a></h2>
+
+		<div property="sioc:content">
+		  <p>(This is a reprint of <a href="http://www.asturlinux.org/comunidad/node/751">the original post</a>)</p><p>Estoy de vacaciones, y con muchas ganas de salir al monte otra vez después de que una avería en ambos pies me haya tenido parado durante los últimos dos meses. Sin embargo, no quería irme sin antes tratar de cumplir <a href="http://www.asturlinux.org/documentos/acta-asamblea/20050618.php">mi compromiso</a> de ayudar a <a href="http://www.asturlinux.org/~jsmanrique/">Manrique</a> con la parte técnica de la videoconferencia que va a dar próximamente. Ya hace unas semanas <a href="http://www.asturlinux.org/comunidad/node/view/709">empecé a investigar</a>, y conseguí capturar video desde una videocámara digital. Ahora me he concentrado en la otra parte, la codificación y retransmisión del stream, usando <a href="http://www.flumotion.net/">Flumotion</a> 0.1.9. Lo que he descubierto es que, debajo de una fachada aparentemente fácil, Flumotion es muy complejo, y el manual apenas ayuda. A base de prueba y error (mi nivel de Python no llega mucho más allá, aunque trato de remediarlo), descubrí algunos de los paquetes de los que depende Flumotion: <tt>gstreamer0.8-ffmpeg</tt>, <tt>gstreamer0.8-dv</tt>, <tt>gstreamer0.8-theora</tt>, <tt>gstreamer0.8-vorbis</tt>, <tt>python-gst</tt>, <tt>python-twisted</tt>, <tt>python-pyopenssl</tt> y seguro que alguno más que me dejo en el tintero. Con eso, y después de muchas pruebas, conseguí crear un stream con audio y video de prueba usando una carta de ajuste. La secuencia de órdenes que use fue la siguiente (la copio aquí porque difiere un poco del manual):</p>
+
+<pre>
+$ flumotion-manager -d 3 conf/managers/default/planet.xml --certificate conf/default.pem
+$ flumotion-worker -d 4 -u user -p test
+$ flumotion-admin -d 4
+</pre>
+
+<p>Ver el stream es sencillo:</p>
+
+<pre>
+$ totem http://localhost:8800/
+</pre>
+
+<p>Por algún motivo, no siempre consigo que arranquen todos los procesos del Flumotion. Sin embargo, vuelvo a crearlos y entonces funciona. Gracias a Google, seguro que alguien con experiencia en los temas de vídeo con Linux acaba leyendo esto y le parece obvio, pero es la primera vez que me meto en este campo y empiezo desde cero.</p>
+
+<p>Bien, cuando ya creía que la victoria estaba próxima, me tropecé con otra dificultad. El Flumotion usa gstreamer para capturar el video de la cámara, mientras que Kino accede directamente. Es decir, que mi triunfo del otro día no sirve. Cuando trato de que Flumotion capture el video, me saca un mensaje de error muy raro (los permisos del dispositivo están bien, ya lo comprobé). Investigando un poco, resulta que no soy el único que tropezó con el mismo error recientemente. Incluso hay <a href="http://lists.fluendo.com/pipermail/flumotion-devel/2005-June/000078.html">un parche</a>, que efectivamente evita el error, pero Flumotion se dedica entonces a consumir toda la CPU que tiene a su alcance, y no acaba de funcionar. Al final, después de varias horas y sin ver nada claro, decidí dejarlo para otro momento. Quizás a la vuelta del monte, y con las neuronas vigorizadas por el aire limpio, consiga rematar la tarea.</p>
+		</div>
+
+		<ul class="post-data">
+
+			<li class="comments"></li>
+
+			<li class="posted"><a href="20050913-1006.html">Posted 13 September, 07:06 PM</a><span property="dc:created" content="2005-09-13T19:06:00PDT"/></li>
+
+		</ul>
+		<span rel="sioc:has_container" href="http://berrueta.net/blog#berrueta-blog"/>
+                <span rel="sioc:has_creator" href="http://berrueta.net/blog#berrueta-user"/>
+                <span rel="sioc:link" href="http://berrueta.net/blog/20050913-1006"/>
+                <span property="sioc:id" content="238"/>
+
+	</div>
+
+</div>
+
+<div instanceof="sioc:User" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" 
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" about="http://berrueta.net/blog#berrueta-user">
+  <span property="sioc:name" content="Diego Berrueta"/>
+  <a rel="rdfs:seeAlso" href="../foaf.rdf"/>
+  <a rel="sioc:account_of" href="../foaf.rdf#me"/>
+</div>
+
+</div> <!-- closes #content -->
+
+
+
+<div id="sidebar">
+
+<h3>Menu</h3>
+
+<ul id="menu">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="index.html">Blog</a></li>
+  <li><a href="../research/index.html">Research</a>
+  <ul>
+    <li><a href="../research/publications/index.html">Publications</a></li>
+    <li><a href="../research/projects/index.html">Projects</a></li>
+    <li><a href="../research/phd-research/index.html">PhD</a></li>
+    <li><a href="../research/reviewer/index.html">Reviewer</a></li>
+  </ul>
+  </li>
+  <li><a href="../teaching/index.html">Teaching</a>
+  <ul>
+    <li><a href="../teaching/courses/index.html">Courses</a></li>
+    <li><a href="../teaching/advised-projects/index.html">Advised projects</a></li>
+  </ul>
+  </li>
+  <li><a href="../freesoftware/index.html">Free software</a>
+  <ul>
+    <li><a href="../freesoftware/projects.html">Projects</a></li>
+    <li><a href="../freesoftware/charlas.html">Talks</a></li>
+    <li><a href="../freesoftware/publicaciones.html">Publications</a></li>
+  </ul>
+  </li>
+  <li><a href="../personal/index.html">Personal</a>
+  <ul>
+    <li><a href="http://www.flickr.com/photos/berrueta/">Photos at Flickr</a></li>
+    <li><a href="../personal/people.html">People</a></li>
+    <li><a href="../personal/trips.html">Past and upcoming trips</a></li>
+  </ul>
+  </li>
+</ul>
+
+<h3>Recent posts</h3>
+<ul>
+  <li><a href="new-horizons-new-blog.html" title="New horizons, new&#160;blog">New horizons, new&#160;blog</a></li><li><a href="rdfa-developer-and-trioo.html" title="RDFa Developer and&#160;Trioo">RDFa Developer and&#160;Trioo</a></li><li><a href="steamy.html" title="Steamy">Steamy</a></li><li><a href="xsparql.html" title="XSPARQL">XSPARQL</a></li><li><a href="terras.html" title="TeRRAS">TeRRAS</a></li>
+</ul>
+
+<!--
+<h3>Categories</h3><ul class="category_list">
+	<li><a href="http://berrueta.net/category/Apple/">Apple</a></li>
+	<li><a href="http://berrueta.net/category/Books/">Books</a></li>
+	<li><a href="http://berrueta.net/category/Conferences/">Conferences</a></li>
+	<li><a href="http://berrueta.net/category/Free-Software/">Free Software</a></li>
+	<li><a href="http://berrueta.net/category/Google/">Google</a></li>
+	<li><a href="http://berrueta.net/category/Mountains/">Mountains</a></li>
+	<li><a href="http://berrueta.net/category/Movies/">Movies</a></li>
+	<li><a href="http://berrueta.net/category/Publications/">Publications</a></li>
+	<li><a href="http://berrueta.net/category/Semantic-Web/">Semantic Web</a></li>
+	<li><a href="http://berrueta.net/category/Trips/">Trips</a></li>
+	<li><a href="http://berrueta.net/category/University/">University</a></li>
+</ul>
+-->
+
+<p><a href="../rss/index.html%3Fsection=blog"><img class="feedicon" src="../images/4.png" alt="XML icon"/> Syndicate my blog
+</a></p>
+
+<p><a href="../archive/index.html">Older posts</a></p>
+
+
+</div> <!-- closes #sidebar -->
+
+
+
+</div> <!-- closes #middle -->
+
+
+
+<div id="footer">
+
+	<p id="footertext"><a href="http://validator.w3.org/check?uri=referer">XHTML</a> <a href="http://www.w3.org/2007/08/pyRdfa/extract?uri=referer">with RDFa</a> <!--a href="http://localhost/cgi-bin/RDFa.py?uri=referer">test, don't click here</a--> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | Adapted from a <a href="http://www.kevinpottsdesign.com" title="Kansas City-based web design, graphic design and textpattern expert">design by Kevin Potts</a> | <a href="http://www.graphicpush.com/icons" title="Free Icons and Icon Sets">Icons from graphicPUSH</a> |
+
+	  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img class="ccicon" alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>
+	  (c) Diego Berrueta, 2007. Except otherwise noted, contents are published under a <a
+	    rel="license"
+	    href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons License</a>. Resources listed as publications or projects might be subject to other licenses.
+	</p>
+
+</div>
+
+
+
+</div> <!-- closes #frame -->
+
+
+<!-- Google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2220066-1";
+urchinTracker();
+</script>
+
+</body>
+
+</html>

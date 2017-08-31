@@ -1,0 +1,170 @@
+* { margin: 0; padding: 0; }
+
+body {
+	}
+	
+#accessibility {
+	display: none;
+	}
+
+/* -------------------
+Main Structure
+------------------- */
+	
+#frame {
+	margin: 0;
+	}
+	
+#middle {
+	}
+
+#content {
+	}
+	
+#sidebar {
+	display: none;
+	}
+	
+/* -------------------
+Header
+------------------- */
+
+#header {
+	}
+	
+#header h1 {
+	color: #000;
+	font: 1.2em/20px Arial, Helvetica, sans-serif;
+	letter-spacing: 0.1em;
+	padding-bottom: 20px;
+	margin: 0 0 30px 0;
+	border-bottom: 1px dashed #999;
+	}
+	
+#header #nav {
+	display: none;
+	}
+	
+/* -------------------
+Content
+------------------- */
+
+#content .post {
+	margin: 0;
+	}
+	
+/* general #content definitions */
+	
+#content h2 {
+	color: #ffd482;
+	font: 1.3em/2em Arial, Helvetica, sans-serif;
+	margin: 0 0 0.3em 0;
+	}
+
+#content h2 a {
+	color: #ffd482;
+	text-decoration: none;
+	}
+
+#content h2 a:hover {
+	text-decoration: underline;
+	}
+	
+#content h3 {
+	font: 1em/2em Arial, Helvetica, sans-serif;
+	color: #fff;
+	margin: 1.1em 0 0.2em 0;
+	font-weight: bold;
+	}
+	
+#content h4 {
+	font: bold 0.9em/1em Arial, Helvetica, sans-serif;
+	color: #a5c1e5;
+	border-left: 1em solid #a5c1e5;
+	padding: 0 0 0 0.5em;
+	margin: 1em 0;
+	}
+	
+#content p, #content li, #content dl {
+	color: #000;
+	font: 0.75em/1.6em Arial, Helvetica, sans-serif;
+	}
+	
+#content p, #content ul, #content ol, #content dl, #content img {
+	margin: 0 0 0.7em 0;
+	}
+	
+#content li {
+	margin: 0 0 0 30px;
+	}
+	
+#content dl dt {
+	font-weight: bold;
+	}
+	
+#content dl dd {
+	margin: 0 0 0.4em 0.5em;
+	}
+	
+#content .post ul.post-data {
+	border-top: 1px solid #98bae6;
+	list-style: none;
+	font: 0.9em/2em Tahoma, Arial, Helvetica, sans-serif;
+	padding: 0.1em 0 0.2em 0;
+	color: #a5c1e5;
+	margin: 1.3em 0 0 0;
+	}
+
+#content .post ul.post-data li {
+	color: #a5c1e5;
+	}
+
+#content .post ul.post-data li.posted {
+	margin: 0;
+	}
+	
+#content .post ul.post-data li.comments {
+	float: right;
+	margin: 0 0.7em 0 0;
+	display: inline; /* fixes double float bug in IE */
+	}
+	
+/* -------------------
+Comments
+------------------- */
+
+#content #comments {
+	margin-top: 40px;
+	}
+	
+#content #comments .comment {
+	margin: 0 0 2em 0;
+	}
+	
+#content #comments .comment p {
+	margin: 0 0 0.8em 0;
+	}
+	
+#content #comments .comment .comment-data p {
+	font: 0.7em/2em Tahoma, Arial, Helvetica, sans-serif;
+	margin: 1.5em 0 0 0;
+	}
+
+#content #comments form {
+	display: none;
+	}
+	
+/* -------------------
+Footer
+------------------- */
+
+#footer {
+	}
+	
+#footer #footertext {
+	font: 0.75em/1.6em Arial, Helvetica, sans-serif;
+	}
+	
+#footer #searchform {
+	display: none;
+	}

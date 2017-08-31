@@ -1,0 +1,43 @@
+
+/* mine 
+------------------------------------------------ */
+
+.avatar { 
+  vertical-align:top;
+  float:right;
+  margin-left:15px;
+  margin-bottom:15px;
+}
+
+
+h1 a:visited {
+  color:white;
+}
+
+
+.feedicon {
+  border:0px;
+}
+
+.ccicon {
+  border:0px;
+}
+
+.license {
+  font-size:small;
+}
+
+.bibentry {
+}
+
+.bibtitle {
+  background-color:#4050c0;
+}
+
+.bibauthors {
+  padding-left: 10%;
+}
+
+.bibdata {
+  padding-left:10%;
+}

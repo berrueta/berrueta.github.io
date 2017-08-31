@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head profile="http://www.w3.org/2003/g/data-view">
+
+    <link rel="transformation" href="http://ns.inria.fr/grddl/rdfa/2007/09/19/RDFa2RDFXML.xsl"/>
+
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+
+    <meta name="AUTHOR" content="Diego Berrueta Muñoz" />
+    <meta name="COPYRIGHT" content="Copyright (c) 2007 Diego Berrueta Muñoz" />
+    <meta name="DESCRIPTION" content="Personal home page and blog of Diego Berrueta" />
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss/index.html%3Fsection=blog"/>
+    <link rel="meta" type="application/rdf+xml" title="SIOC" href="http://www.w3.org/2007/08/pyRdfa/extract?uri=http://berrueta.net/blog/20041129-1036"/>
+
+	<link rel="home" title="Home" href="../index.html" />
+
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="../sapphire.css" />
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="../mine.css" />
+
+	<link rel="stylesheet" type="text/css" media="print" href="../sapphireprint.css" />
+
+	<title>Diego Berrueta: Afinando el iBook
+</title>
+
+</head>
+
+
+
+<body>
+
+
+
+<div id="frame">
+
+
+
+<div id="accessibility">
+
+	<a href="20041129-1036.html#content" title="Go to content">Go to content</a> 
+
+	<a href="20041129-1036.html#nav" title="Go to navigation">Go to navigation</a> 
+
+</div> <!-- closes #accessibility -->
+
+
+
+<div id="header">
+
+	<h1><a href="../index.html">Diego Berrueta</a></h1>
+
+	<div id="nav">
+
+		<ul>
+
+			<li><a href="../index.html" title="Return to homepage">Home</a></li>
+
+			<li><a href="../blog.html" title="Read blog posts">Blog</a></li>
+
+			<li><a href="http://www.flickr.com/photos/berrueta/" title="Some of my photos">Gallery</a></li>
+
+		</ul>
+
+<!--
+		<p><a href="http://berrueta.net/rss/?section=blog" title="RSS Feed">Subscribe</a></p>
+-->
+
+	</div> <!-- closes #nav -->
+
+</div> <!-- closes #header -->
+
+
+
+<div id="middle">
+
+<div id="content">
+
+	
+
+<div instanceof="sioc:Forum" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" about="http://berrueta.net/blog#berrueta-blog">
+
+	
+		<div class="post" instanceof="sioc:Post" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" about="http://berrueta.net/blog/20041129-1036" >
+
+		<h2><a rel="bookmark" href="20041129-1036.html"><span property="dc:title">Afinando el&#160;iBook</span></a></h2>
+
+		<div property="sioc:content">
+		  <p>(This is a reprint of <a href="http://www.asturlinux.org/comunidad/node/387">the original post</a>)</p><p>El sábado me puse con lo de la salida VGA. Me costó un rato dar con el documento bueno, pero al final encontré <a href="http://seb.france.free.fr/linux/ibookG4/iBookG4-howto.html">un completísimo HOWTO</a>. Con él, fue pan comido. Aunque no todo es perfecto. En primer lugar, la visualización de las fuentes en el monitor CRT no es perfecta, debido a que su renderizado está optimizado para el TFT (¿cómo saldrán en un cañón de proyección?). En segundo lugar, después de activar la salida de VGA, el rendimiento de la aceleración gráfica ha descendido considerablemente (el glxgears bajó de 1100 fps a 550, la mitad), y además, los juegos 3D no llegan a cubrir toda la superficie. Tendré que echarle una ojeada.</p><p>
+En cuanto a la suspensión a RAM, después de aquel primer intento fallido, los siguientes fueron como la seda. Bueno, casi. Digamos que generalmente funciona, pero que alguna vez da un kernel panic al restaurar. Estoy usando el parche #5 de BenH. Eso sí, cuando funciona (ya digo que es la mayor parte de las veces), da gusto. Nuberlang ha estimado que el consumo de batería durante 14 horas de suspensión es de aproximadamente un 7% en su ibook.</p><p>
+Luego me puse a mirar los programas de los que había hablado la semana pasada, los de configurar automáticamente la red. El más maduro y documentado parece laptop-net, así que por ahí comencé. Ya no probé más. Hace todo lo que yo quiero. Es capaz de detectar cuándo se pincha el ordenador a una nueva red, detectar las características de la red (si usa DHCP, o IP fija, por ejemplo) basándose en peticiones ARP, y una vez que sabe dónde está, no sólo configura la interfaz de red, sino que permite lanzar y parar demonios, montar sistemas de ficheros, reconfigurar servicios y, en general, ejecutar cualquier script que nosotros queramos. Por ejemplo, yo he escrito el siguiente script para modificar la configuración del proxy de GNOME. Como el script se ejecuta con la personalidad de root, uso sudo para cambiar a mi usuario:</p>
+<pre>
+#!/bin/bash
+
+GCONFTOOL="/usr/bin/sudo -u berrueta /usr/bin/gconftool-2"
+
+case "$1" in
+  "uniovi")
+    $GCONFTOOL --set --type bool    /system/http_proxy/use_http_proxy true
+    $GCONFTOOL --set --type string  /system/http_proxy/host "proxy.uniovi.es"
+    $GCONFTOOL --set --type integer /system/http_proxy/port "8888"
+    ;;
+  "noproxy")
+    $GCONFTOOL --set --type bool /system/http_proxy/use_http_proxy false
+    ;;
+  *)
+    ;;
+esac
+</pre>
+<p>
+Una cosa curiosa de laptop-net es que desaparece cuando suspendes el iBook. Pero eso tampoco es muy problemático. Simplemente hay que añadir</p>
+<pre>
+  resume)
+    /etc/init.d/laptop-net start
+</pre>
+<p>
+en el lugar apropiado dentro del fichero <tt>/etc/power/pcms-pbbuttonsd</tt> para que se vuelva a lanzar el demonio cada vez que abres la tapa.</p>
+		</div>
+
+		<ul class="post-data">
+
+			<li class="comments"></li>
+
+			<li class="posted"><a href="20041129-1036.html">Posted 29 November, 08:36 PM</a><span property="dc:created" content="2004-11-29T20:36:00PST"/></li>
+
+		</ul>
+		<span rel="sioc:has_container" href="http://berrueta.net/blog#berrueta-blog"/>
+                <span rel="sioc:has_creator" href="http://berrueta.net/blog#berrueta-user"/>
+                <span rel="sioc:link" href="http://berrueta.net/blog/20041129-1036"/>
+                <span property="sioc:id" content="178"/>
+
+	</div>
+
+</div>
+
+<div instanceof="sioc:User" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" 
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" about="http://berrueta.net/blog#berrueta-user">
+  <span property="sioc:name" content="Diego Berrueta"/>
+  <a rel="rdfs:seeAlso" href="../foaf.rdf"/>
+  <a rel="sioc:account_of" href="../foaf.rdf#me"/>
+</div>
+
+</div> <!-- closes #content -->
+
+
+
+<div id="sidebar">
+
+<h3>Menu</h3>
+
+<ul id="menu">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="index.html">Blog</a></li>
+  <li><a href="../research/index.html">Research</a>
+  <ul>
+    <li><a href="../research/publications/index.html">Publications</a></li>
+    <li><a href="../research/projects/index.html">Projects</a></li>
+    <li><a href="../research/phd-research/index.html">PhD</a></li>
+    <li><a href="../research/reviewer/index.html">Reviewer</a></li>
+  </ul>
+  </li>
+  <li><a href="../teaching/index.html">Teaching</a>
+  <ul>
+    <li><a href="../teaching/courses/index.html">Courses</a></li>
+    <li><a href="../teaching/advised-projects/index.html">Advised projects</a></li>
+  </ul>
+  </li>
+  <li><a href="../freesoftware/index.html">Free software</a>
+  <ul>
+    <li><a href="../freesoftware/projects.html">Projects</a></li>
+    <li><a href="../freesoftware/charlas.html">Talks</a></li>
+    <li><a href="../freesoftware/publicaciones.html">Publications</a></li>
+  </ul>
+  </li>
+  <li><a href="../personal/index.html">Personal</a>
+  <ul>
+    <li><a href="http://www.flickr.com/photos/berrueta/">Photos at Flickr</a></li>
+    <li><a href="../personal/people.html">People</a></li>
+    <li><a href="../personal/trips.html">Past and upcoming trips</a></li>
+  </ul>
+  </li>
+</ul>
+
+<h3>Recent posts</h3>
+<ul>
+  <li><a href="new-horizons-new-blog.html" title="New horizons, new&#160;blog">New horizons, new&#160;blog</a></li><li><a href="rdfa-developer-and-trioo.html" title="RDFa Developer and&#160;Trioo">RDFa Developer and&#160;Trioo</a></li><li><a href="steamy.html" title="Steamy">Steamy</a></li><li><a href="xsparql.html" title="XSPARQL">XSPARQL</a></li><li><a href="terras.html" title="TeRRAS">TeRRAS</a></li>
+</ul>
+
+<!--
+<h3>Categories</h3><ul class="category_list">
+	<li><a href="http://berrueta.net/category/Apple/">Apple</a></li>
+	<li><a href="http://berrueta.net/category/Books/">Books</a></li>
+	<li><a href="http://berrueta.net/category/Conferences/">Conferences</a></li>
+	<li><a href="http://berrueta.net/category/Free-Software/">Free Software</a></li>
+	<li><a href="http://berrueta.net/category/Google/">Google</a></li>
+	<li><a href="http://berrueta.net/category/Mountains/">Mountains</a></li>
+	<li><a href="http://berrueta.net/category/Movies/">Movies</a></li>
+	<li><a href="http://berrueta.net/category/Publications/">Publications</a></li>
+	<li><a href="http://berrueta.net/category/Semantic-Web/">Semantic Web</a></li>
+	<li><a href="http://berrueta.net/category/Trips/">Trips</a></li>
+	<li><a href="http://berrueta.net/category/University/">University</a></li>
+</ul>
+-->
+
+<p><a href="../rss/index.html%3Fsection=blog"><img class="feedicon" src="../images/4.png" alt="XML icon"/> Syndicate my blog
+</a></p>
+
+<p><a href="../archive/index.html">Older posts</a></p>
+
+
+</div> <!-- closes #sidebar -->
+
+
+
+</div> <!-- closes #middle -->
+
+
+
+<div id="footer">
+
+	<p id="footertext"><a href="http://validator.w3.org/check?uri=referer">XHTML</a> <a href="http://www.w3.org/2007/08/pyRdfa/extract?uri=referer">with RDFa</a> <!--a href="http://localhost/cgi-bin/RDFa.py?uri=referer">test, don't click here</a--> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | Adapted from a <a href="http://www.kevinpottsdesign.com" title="Kansas City-based web design, graphic design and textpattern expert">design by Kevin Potts</a> | <a href="http://www.graphicpush.com/icons" title="Free Icons and Icon Sets">Icons from graphicPUSH</a> |
+
+	  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img class="ccicon" alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>
+	  (c) Diego Berrueta, 2007. Except otherwise noted, contents are published under a <a
+	    rel="license"
+	    href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons License</a>. Resources listed as publications or projects might be subject to other licenses.
+	</p>
+
+</div>
+
+
+
+</div> <!-- closes #frame -->
+
+
+<!-- Google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2220066-1";
+urchinTracker();
+</script>
+
+</body>
+
+</html>

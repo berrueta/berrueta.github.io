@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:air="http://www.megginson.com/exp/ns/airports#"
+  xmlns:cert="http://www.w3.org/ns/auth/cert#"
+  xmlns:contact="http://www.w3.org/2000/10/swap/pim/contact#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:rsa="http://www.w3.org/ns/auth/rsa#"
+  xmlns:s="http://schema.org/"
+  xmlns:wn="http://xmlns.com/wordnet/1.6/"
+  xmlns:wot="http://xmlns.com/wot/0.1/"
+  xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#"
+  xmlns:xml="http://www.w3.org/XML/1998/namespace"
+>
+  <rdf:Description rdf:about="http://berrueta.net/main/about-me-and-this-site">
+    <xhv:license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+    <xhv:bookmark rdf:resource="http://berrueta.net/main/about-me-and-this-site"/>
+    <xhv:meta rdf:resource="http://www.w3.org/2007/08/pyRdfa/extract?uri=http://berrueta.net/main/about-me-and-this-site"/>
+    <xhv:stylesheet rdf:resource="http://berrueta.net/sapphireprint.css"/>
+    <xhv:stylesheet rdf:resource="http://berrueta.net/mine.css"/>
+    <xhv:stylesheet rdf:resource="http://berrueta.net/sapphire.css"/>
+    <xhv:alternate rdf:resource="http://berrueta.net/rss/?section=blog"/>
+  </rdf:Description>
+  <wot:PubKey rdf:about="http://berrueta.net/foaf.rdf#key">
+    <wot:fingerprint xml:lang="en">6B63 2CDA 98E5 7039 5904  E414 AC20 E1F3 7361 F61D</wot:fingerprint>
+    <wot:length xml:lang="en">1024</wot:length>
+    <wot:hex_id xml:lang="en">7361F61D</wot:hex_id>
+    <wot:identity>
+      <foaf:Person rdf:about="http://berrueta.net/foaf.rdf#me">
+        <foaf:holdsAccount>
+          <foaf:OnlineAccount rdf:about="http://berrueta.net/main/about-me-and-this-site#slideshareAccount">
+            <foaf:accountName xml:lang="en">berrueta</foaf:accountName>
+          </foaf:OnlineAccount>
+        </foaf:holdsAccount>
+        <foaf:holdsAccount>
+          <foaf:OnlineAccount rdf:about="http://berrueta.net/main/about-me-and-this-site#skypeAccount">
+            <foaf:accountServiceHomepage rdf:resource="http://www.skype.com/"/>
+            <foaf:accountName xml:lang="en">diego.berrueta</foaf:accountName>
+          </foaf:OnlineAccount>
+        </foaf:holdsAccount>
+        <foaf:holdsAccount>
+          <foaf:OnlineAccount rdf:about="http://berrueta.net/main/about-me-and-this-site#flickrAccount">
+            <foaf:accountServiceHomepage rdf:resource="http://www.flickr.com/"/>
+            <foaf:accountName xml:lang="en">berrueta</foaf:accountName>
+          </foaf:OnlineAccount>
+        </foaf:holdsAccount>
+        <foaf:holdsAccount>
+          <foaf:OnlineAccount rdf:about="http://berrueta.net/main/about-me-and-this-site#twitterAccount">
+            <foaf:accountName xml:lang="en">diegoberrueta</foaf:accountName>
+          </foaf:OnlineAccount>
+        </foaf:holdsAccount>
+        <foaf:holdsAccount>
+          <foaf:OnlineAccount rdf:about="http://berrueta.net/main/about-me-and-this-site#bibsonomyAccount">
+            <foaf:accountServiceHomepage rdf:resource="http://www.bibsonomy.org/"/>
+            <foaf:accountName xml:lang="en">berrueta</foaf:accountName>
+          </foaf:OnlineAccount>
+        </foaf:holdsAccount>
+        <foaf:holdsAccount>
+          <foaf:OnlineAccount rdf:about="http://berrueta.net/main/about-me-and-this-site#linkedinAccount">
+            <foaf:accountServiceHomepage rdf:resource="http://www.linkedin.com/"/>
+            <foaf:accountName xml:lang="en">berrueta</foaf:accountName>
+          </foaf:OnlineAccount>
+        </foaf:holdsAccount>
+        <foaf:firstName xml:lang="en">Diego</foaf:firstName>
+        <foaf:name xml:lang="en">Diego Berrueta</foaf:name>
+        <foaf:mbox_sha1sum xml:lang="en">98a99390f2fe9395041bddc41e933f50e59a5ecb</foaf:mbox_sha1sum>
+        <rdfs:seeAlso rdf:resource="http://berrueta.net/personal/people"/>
+        <foaf:googleTalk xml:lang="en">berrueta@gmail.com</foaf:googleTalk>
+        <s:name xml:lang="en">Diego Berrueta</s:name>
+        <foaf:title xml:lang="en">Mr</foaf:title>
+        <foaf:phone rdf:resource="tel:+61-292621443"/>
+        <owl:sameAs rdf:resource="https://foaf.me/berrueta#me"/>
+        <rdf:type rdf:resource="http://schema.org/Person"/>
+        <foaf:homepage rdf:resource="http://berrueta.net/"/>
+        <foaf:workplaceHomepage rdf:resource="http://www.atlassian.com/"/>
+        <foaf:depiction>
+          <foaf:Image rdf:about="http://berrueta.net/images/2.png">
+            <dc:description xml:lang="en">Head of Diego Berrueta</dc:description>
+            <dc:format xml:lang="en">image/png</dc:format>
+            <dc:title xml:lang="en">Diego Berrueta</dc:title>
+          </foaf:Image>
+        </foaf:depiction>
+        <foaf:surname xml:lang="en">Berrueta</foaf:surname>
+        <s:jobTitle xml:lang="en">software engineer</s:jobTitle>
+        <foaf:interest rdf:resource="http://dbpedia.org/resource/Free_software"/>
+        <foaf:interest rdf:resource="http://dbpedia.org/resource/Semantic_Web"/>
+        <foaf:nick xml:lang="en">berrueta</foaf:nick>
+        <foaf:openid rdf:resource="http://www.flickr.com/photos/berrueta"/>
+        <foaf:publications rdf:resource="http://berrueta.net/research/publications"/>
+        <foaf:weblog rdf:resource="http://berrueta.net/blog"/>
+        <s:url rdf:resource="http://berrueta.net/"/>
+      </foaf:Person>
+    </wot:identity>
+  </wot:PubKey>
+  <foaf:PersonalProfileDocument rdf:about="http://berrueta.net/foaf.rdf">
+    <foaf:primaryTopic rdf:resource="http://berrueta.net/foaf.rdf#me"/>
+    <foaf:maker rdf:resource="http://berrueta.net/foaf.rdf#me"/>
+  </foaf:PersonalProfileDocument>
+  <rsa:RSAPublicKey rdf:about="http://berrueta.net/main/about-me-and-this-site#cert">
+    <cert:identity rdf:resource="http://berrueta.net/foaf.rdf#me"/>
+    <rsa:public_exponent rdf:datatype="http://www.w3.org/ns/auth/cert#int">65537</rsa:public_exponent>
+    <rsa:modulus rdf:datatype="http://www.w3.org/ns/auth/cert#hex">
+00:c2:6e:a4:76:7b:6b:f4:1a:33:62:e6:5f:6c:16:                    71:7e:3a:72:5e:a9:83:e7:f3:b4:35:50:ff:eb:4f:                    f8:d2:e7:a6:7c:51:c6:fe:da:e7:06:a8:da:4c:7e:                    58:b4:95:85:46:8d:26:ae:e3:0c:df:2b:c4:fb:0b:                    4b:99:4c:c7:08:40:92:dc:8b:0b:cf:f8:39:22:df:                    8c:25:5f:84:41:d9:2f:3d:51:83:a3:85:fa:19:a7:                    4e:cb:e4:bf:bf:49:1a:e2:88:a7:01:4a:54:05:cd:                    06:67:61:74:53:a2:ea:95:ce:82:aa:ce:4a:88:cb:                    8e:66:b5:04:8a:3e:fa:a7:2c:f3:ce:a7:2b:3e:4f:                    af:78:be:db:66:2c:51:e8:07:9e:07:ac:bc:e2:a8:                    f2:e8:ae:99:ed:77:39:38:55:47:06:01:da:75:47:                    31:6a:17:d8:bd:2d:1b:5d:d2:dd:60:fa:54:6f:4e:                    a5:5b:d8:44:2a:fc:ee:27:b0:8c:9e:62:bf:48:f7:                    7d:61:18:7c:1e:61:3c:eb:b4:4d:f4:e0:0b:ad:5c:                    fb:e7:9c:b1:03:e2:3b:59:70:5e:ea:5a:98:40:59:                    96:b1:39:9a:ce:10:1e:7a:f9:ad:68:71:37:ab:90:                    ea:ec:dc:e1:a9:1c:f9:a6:bd:d0:60:02:5f:ad:8d:10:e9
+  </rsa:modulus>
+  </rsa:RSAPublicKey>
+</rdf:RDF>

@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head profile="http://www.w3.org/2003/g/data-view">
+
+    <link rel="transformation" href="http://ns.inria.fr/grddl/rdfa/2007/09/19/RDFa2RDFXML.xsl"/>
+
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+
+    <meta name="AUTHOR" content="Diego Berrueta Muñoz" />
+    <meta name="COPYRIGHT" content="Copyright (c) 2007 Diego Berrueta Muñoz" />
+    <meta name="DESCRIPTION" content="Personal home page and blog of Diego Berrueta" />
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss/index.html%3Fsection=blog"/>
+    <link rel="meta" type="application/rdf+xml" title="SIOC" href="http://www.w3.org/2007/08/pyRdfa/extract?uri=http://berrueta.net/blog/20040613-0209"/>
+
+	<link rel="home" title="Home" href="../index.html" />
+
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="../sapphire.css" />
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="../mine.css" />
+
+	<link rel="stylesheet" type="text/css" media="print" href="../sapphireprint.css" />
+
+	<title>Diego Berrueta: 13 Jun 2004: guia para frustrados por el nuevo Nautilus</title>
+
+</head>
+
+
+
+<body>
+
+
+
+<div id="frame">
+
+
+
+<div id="accessibility">
+
+	<a href="20040613-0209.html#content" title="Go to content">Go to content</a> 
+
+	<a href="20040613-0209.html#nav" title="Go to navigation">Go to navigation</a> 
+
+</div> <!-- closes #accessibility -->
+
+
+
+<div id="header">
+
+	<h1><a href="../index.html">Diego Berrueta</a></h1>
+
+	<div id="nav">
+
+		<ul>
+
+			<li><a href="../index.html" title="Return to homepage">Home</a></li>
+
+			<li><a href="../blog.html" title="Read blog posts">Blog</a></li>
+
+			<li><a href="http://www.flickr.com/photos/berrueta/" title="Some of my photos">Gallery</a></li>
+
+		</ul>
+
+<!--
+		<p><a href="http://berrueta.net/rss/?section=blog" title="RSS Feed">Subscribe</a></p>
+-->
+
+	</div> <!-- closes #nav -->
+
+</div> <!-- closes #header -->
+
+
+
+<div id="middle">
+
+<div id="content">
+
+	
+
+<div instanceof="sioc:Forum" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" about="http://berrueta.net/blog#berrueta-blog">
+
+	
+		<div class="post" instanceof="sioc:Post" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" about="http://berrueta.net/blog/20040613-0209" >
+
+		<h2><a rel="bookmark" href="20040613-0209.html"><span property="dc:title">13 Jun 2004: guia para frustrados por el nuevo&#160;Nautilus</span></a></h2>
+
+		<div property="sioc:content">
+		  <p>(This is a reprint of <a href="http://www.asturlinux.org/comunidad/node/186">the original post</a>)</p>
+<p>El cambio de comportamiento del Nautilus en GNOME 2.6 no ha dejado a nadie indiferente. Son muchos los que piensan que ha sido un cambio para peor. En cualquier caso, recomiendo la lectura de dos art&#xED;culos: <a href="http://www.osnews.com/story.php?news_id=7344" target="_parent">el primero</a> habla de la met&#xE1;fora espacial desde un punto de vista m&#xE1;s abstracto, mientras que <a href="http://www.bytebot.net/geekdocs/spatial-nautilus.html" target="_parent">el segundo</a> explica c&#xF3;mo sacarle partido al nuevo Nautilus. Bueno, aqu&#xED; hay alg&#xFA;n truco para los nost&#xE1;lgicos de las versiones anteriores de Nautilus:</p>
+
+<ul>
+
+<li>Si para abrir una carpeta se usa el doble-clic del bot&#xF3;n central del rat&#xF3;n (en lugar del bot&#xF3;n izquierdo), la nueva carpeta se abre al mismo tiempo que la vieja se cierra. De esta forma, se evita llenar el escritorio de ventanas con carpetas intermedias.</li>
+
+<li>Otro truquillo: si se pulsa con el bot&#xF3;n derecho en una carpeta, la segunda opci&#xF3;n es <i>Explorar carpeta</i>. Esto abrir&#xE1; el viejo Nautilus en esa carpeta. El efecto es el mismo si llamamos a Nautilus con el par&#xE1;metro <tt>--browser</tt>.</li>
+
+<li>Para los que quieran hacer que el comportamiento y aspecto por defecto sean los del Nautilus viejo (es decir, eliminar la met&#xE1;fora espacial), entonces hay que editar la clave <tt>/apps/nautilus/preferences/always_use_browser</tt> del <i>GConf</i> y ponerla a <i>True</i>. Esto se puede hacer con el programa <tt>gconf</tt> desde la linea de comandos, o con el editor gr&#xE1;fico de configuraci&#xF3;n (<i>Aplicaciones -> Herramientas de sistema -> Editor de configuraci&#xF3;n</i>). Tambi&#xE9;n el programa <a href="http://gtweakui.sourceforge.net" target="_parent">gTweakUI</a> nos permite cambiar esta opci&#xF3;n de forma sencilla (v&#xE9;ase la <a href="http://gtweakui.sourceforge.net/screen.php" target="_parent">captura de pantalla</a>).</li>
+
+<li>Una demanda muy habitual es la de un bot&#xF3;n para cerrar todas las carpetas abiertas por Nautilus. Esta caracter&#xED;stica <a href="http://bugzilla.gnome.org/show_bug.cgi?id=142632" target="_parent">ya est&#xE1; presente</a> en las versiones de desarrollo de Nautilus, y por tanto no tardar&#xE1; en aparecer en las estables.</li>
+
+</ul>
+
+<p><i>Nota:</i> el contenido de este art&#xED;culo se incorpora a la <a href="http://www.asturlinux.org/wiki/index.php/RecetasMenosEsMas" target="_parent">Gu&#xED;a para frustrados por menos-es-m&#xE1;s</a>.</p>
+		</div>
+
+		<ul class="post-data">
+
+			<li class="comments"></li>
+
+			<li class="posted"><a href="20040613-0209.html">Posted 13 June, 11:09 AM</a><span property="dc:created" content="2004-06-13T11:09:00PDT"/></li>
+
+		</ul>
+		<span rel="sioc:has_container" href="http://berrueta.net/blog#berrueta-blog"/>
+                <span rel="sioc:has_creator" href="http://berrueta.net/blog#berrueta-user"/>
+                <span rel="sioc:link" href="http://berrueta.net/blog/20040613-0209"/>
+                <span property="sioc:id" content="120"/>
+
+	</div>
+
+</div>
+
+<div instanceof="sioc:User" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" 
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" about="http://berrueta.net/blog#berrueta-user">
+  <span property="sioc:name" content="Diego Berrueta"/>
+  <a rel="rdfs:seeAlso" href="../foaf.rdf"/>
+  <a rel="sioc:account_of" href="../foaf.rdf#me"/>
+</div>
+
+</div> <!-- closes #content -->
+
+
+
+<div id="sidebar">
+
+<h3>Menu</h3>
+
+<ul id="menu">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="index.html">Blog</a></li>
+  <li><a href="../research/index.html">Research</a>
+  <ul>
+    <li><a href="../research/publications/index.html">Publications</a></li>
+    <li><a href="../research/projects/index.html">Projects</a></li>
+    <li><a href="../research/phd-research/index.html">PhD</a></li>
+    <li><a href="../research/reviewer/index.html">Reviewer</a></li>
+  </ul>
+  </li>
+  <li><a href="../teaching/index.html">Teaching</a>
+  <ul>
+    <li><a href="../teaching/courses/index.html">Courses</a></li>
+    <li><a href="../teaching/advised-projects/index.html">Advised projects</a></li>
+  </ul>
+  </li>
+  <li><a href="../freesoftware/index.html">Free software</a>
+  <ul>
+    <li><a href="../freesoftware/projects.html">Projects</a></li>
+    <li><a href="../freesoftware/charlas.html">Talks</a></li>
+    <li><a href="../freesoftware/publicaciones.html">Publications</a></li>
+  </ul>
+  </li>
+  <li><a href="../personal/index.html">Personal</a>
+  <ul>
+    <li><a href="http://www.flickr.com/photos/berrueta/">Photos at Flickr</a></li>
+    <li><a href="../personal/people.html">People</a></li>
+    <li><a href="../personal/trips.html">Past and upcoming trips</a></li>
+  </ul>
+  </li>
+</ul>
+
+<h3>Recent posts</h3>
+<ul>
+  <li><a href="new-horizons-new-blog.html" title="New horizons, new&#160;blog">New horizons, new&#160;blog</a></li><li><a href="rdfa-developer-and-trioo.html" title="RDFa Developer and&#160;Trioo">RDFa Developer and&#160;Trioo</a></li><li><a href="steamy.html" title="Steamy">Steamy</a></li><li><a href="xsparql.html" title="XSPARQL">XSPARQL</a></li><li><a href="terras.html" title="TeRRAS">TeRRAS</a></li>
+</ul>
+
+<!--
+<h3>Categories</h3><ul class="category_list">
+	<li><a href="http://berrueta.net/category/Apple/">Apple</a></li>
+	<li><a href="http://berrueta.net/category/Books/">Books</a></li>
+	<li><a href="http://berrueta.net/category/Conferences/">Conferences</a></li>
+	<li><a href="http://berrueta.net/category/Free-Software/">Free Software</a></li>
+	<li><a href="http://berrueta.net/category/Google/">Google</a></li>
+	<li><a href="http://berrueta.net/category/Mountains/">Mountains</a></li>
+	<li><a href="http://berrueta.net/category/Movies/">Movies</a></li>
+	<li><a href="http://berrueta.net/category/Publications/">Publications</a></li>
+	<li><a href="http://berrueta.net/category/Semantic-Web/">Semantic Web</a></li>
+	<li><a href="http://berrueta.net/category/Trips/">Trips</a></li>
+	<li><a href="http://berrueta.net/category/University/">University</a></li>
+</ul>
+-->
+
+<p><a href="../rss/index.html%3Fsection=blog"><img class="feedicon" src="../images/4.png" alt="XML icon"/> Syndicate my blog
+</a></p>
+
+<p><a href="../archive/index.html">Older posts</a></p>
+
+
+</div> <!-- closes #sidebar -->
+
+
+
+</div> <!-- closes #middle -->
+
+
+
+<div id="footer">
+
+	<p id="footertext"><a href="http://validator.w3.org/check?uri=referer">XHTML</a> <a href="http://www.w3.org/2007/08/pyRdfa/extract?uri=referer">with RDFa</a> <!--a href="http://localhost/cgi-bin/RDFa.py?uri=referer">test, don't click here</a--> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | Adapted from a <a href="http://www.kevinpottsdesign.com" title="Kansas City-based web design, graphic design and textpattern expert">design by Kevin Potts</a> | <a href="http://www.graphicpush.com/icons" title="Free Icons and Icon Sets">Icons from graphicPUSH</a> |
+
+	  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img class="ccicon" alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>
+	  (c) Diego Berrueta, 2007. Except otherwise noted, contents are published under a <a
+	    rel="license"
+	    href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons License</a>. Resources listed as publications or projects might be subject to other licenses.
+	</p>
+
+</div>
+
+
+
+</div> <!-- closes #frame -->
+
+
+<!-- Google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2220066-1";
+urchinTracker();
+</script>
+
+</body>
+
+</html>

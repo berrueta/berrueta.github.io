@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Linux) (yes, I used 'save as...') ">
+	<META NAME="CREATED" CONTENT="20061001;12471000">
+	<META NAME="CHANGEDBY" CONTENT="Diego Berrueta">
+	<META NAME="CHANGED" CONTENT="20070615;11142200">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		P { margin-bottom: 0.21cm }
+		H1 { margin-bottom: 0.21cm }
+		H1.western { font-family: "DejaVu Sans", sans-serif; font-size: 16pt }
+		H1.cjk { font-family: "DejaVu Sans"; font-size: 16pt }
+		H1.ctl { font-family: "DejaVu Sans"; font-size: 16pt }
+		H2 { margin-bottom: 0.21cm }
+		H2.western { font-family: "DejaVu Sans", sans-serif; font-size: 14pt; font-style: italic }
+		H2.cjk { font-size: 14pt; font-style: italic }
+		H2.ctl { font-size: 14pt; font-style: italic }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="es-ES" DIR="LTR">
+<H1 CLASS="western" ALIGN=CENTER>Gui&oacute;n de pr&aacute;cticas de
+Web Sem&aacute;ntica</H1>
+<H2 CLASS="western">Pr&oacute;logo: Google (o “&iquest;qui&eacute;n
+necesita la web sem&aacute;ntica?”)</H2>
+<UL>
+	<LI><P>Ir a los Google Labs (<A HREF="http://labs.google.com/">http://labs.google.com/</A>)
+	y probar:</P>
+	<UL>
+		<LI><P>Google Experimental (b&uacute;squedas geogr&aacute;ficas y
+		temporales). Ejemplos: “f1 view:map”, “playas espa&ntilde;a
+		view:map”, “computer history view:timeline”, “historia
+		espa&ntilde;a view:timeline” (!!)</P>
+		<LI><P>Google Transit</P>
+		<LI><P>Google Set: probar a generar alg&uacute;n conjunto.
+		Ejemplos: personajes del Se&ntilde;or de los Anillos o StarWars,
+		colores, grupos musicales</P>
+	</UL>
+	<LI><P>Probar Yahoo! Pipes (<A HREF="http://pipes.yahoo.com/">http://pipes.yahoo.com/</A>).
+	Examinar c&oacute;mo est&aacute;n hechas algunas de las “pipes”.</P>
+</UL>
+<H2 CLASS="western">FOAF</H2>
+<UL>
+	<LI><P>Examinar la especificaci&oacute;n de FOAF
+	(<A HREF="http://xmlns.com/foaf/spec/">http://xmlns.com/foaf/spec/</A>)
+	y alg&uacute;n fichero de ejemplo.</P>
+	<LI><P>Crear un fichero FOAF usando FOAF-a-matic
+	(<A HREF="http://www.ldodds.com/foaf/foaf-a-matic.es.html">http://www.ldodds.com/foaf/foaf-a-matic.es.html</A>).
+	Validarlo con el validador RDF de W3C
+	(<A HREF="http://www.w3.org/RDF/Validator/">http://www.w3.org/RDF/Validator/</A>).
+	Colgarlo en una p&aacute;gina web para utilizarlo a continuaci&oacute;n.</P>
+	<LI><P>Utilizar un navegador de FOAF como FOAF-explorer
+	(<A HREF="http://xml.mfd-consult.dk/foaf/explorer/">http://xml.mfd-consult.dk/foaf/explorer/</A>),
+	FOAFer (<A HREF="http://www.foafer.org/">http://www.foafer.org/</A>),
+	FOAFnav (<A HREF="http://frade.no-ip.info:2081/foafNav">http://frade.no-ip.info:2081/foafNav</A>).
+	Como punto de partida, se puede tomar cualquier fichero FOAF (por
+	ejemplo: <A HREF="http://www.berrueta.net/foaf.rdf">http://www.berrueta.net/foaf.rdf</A>).</P>
+	<LI><P>Tratar de calcular la distancia en “saltos” entre dos
+	personas (por ejemplo, de D. Berrueta a Dan Brickley, inventor de
+	FOAF, en 2 saltos).</P>
+	<LI><P>Explorar las relaciones entre grandes empresas usando Fat
+	Cats (<A HREF="http://cuboidal.org/demos/foafcorp/">http://cuboidal.org/demos/foafcorp/</A>).
+	Requiere IE + Adobe SVG.</P>
+	<LI><P>Pintar un mapa con la situaci&oacute;n de las personas
+	descritas en un FOAF, usando FOAFmap (<A HREF="http://www.foafmap.net/">http://www.foafmap.net</A>).</P>
+	<LI><P>Probar “Foafing the Music”
+	(<A HREF="http://foafing-the-music.iua.upf.edu/">http://foafing-the-music.iua.upf.edu/</A>)</P>
+</UL>
+<H2 CLASS="western">DOAP</H2>
+<UL>
+	<LI><P>Explorar la clasificaci&oacute;n de proyectos de Apache:
+	<A HREF="http://projects.apache.org/doap.html">http://projects.apache.org/doap.html</A></P>
+	<LI><P>Generar una descripci&oacute;n DOAP en DOAP-o-matic
+	(<A HREF="http://crschmidt.net/semweb/doapamatic/">http://crschmidt.net/semweb/doapamatic/</A>)</P>
+</UL>
+<H2 CLASS="western">RSS</H2>
+<UL>
+	<LI><P>Tratar de localizar un ejemplo de cada una de las variantes
+	de RSS.</P>
+	<LI><P>Utilizar alguno de los validadores de RSS existentes
+	(<A HREF="http://feedvalidator.org/">http://feedvalidator.org/</A>,
+	<A HREF="http://validator.w3.org/feed/">http://validator.w3.org/feed/</A>
+	...)</P>
+	<LI><P>Identificar qu&eacute; espacios de nombres son utilizados
+	habitualmente en combinaci&oacute;n con RSS.</P>
+</UL>
+<H2 CLASS="western">Dublin Core</H2>
+<UL>
+	<LI><P>Instalar y probar el plugin para Firefox
+	(<A HREF="http://addons.mozilla.org/firefox/528">http://addons.mozilla.org/firefox/528</A>)
+	desde alguna p&aacute;gina que tenga las etiquetas (como la de
+	Dublin Core: <A HREF="http://www.dublincore.org/">http://www.dublincore.org/</A>).</P>
+	<LI><P>Generar metadatos para un recurso, utilizando el asistente
+	disponible en
+	<A HREF="http://www.webposible.com/utilidades/dublincore-metadata-gen/">http://www.webposible.com/utilidades/dublincore-metadata-gen/</A></P>
+	<LI><P>Generar metadatos para una imagen, utilizando el asistente
+	disponible en
+	<A HREF="http://www.webposible.com/utilidades/generador_rdf_foto.html">http://www.webposible.com/utilidades/generador_rdf_foto.html</A></P>
+	<LI><P>Generar una licencia Creative Commons
+	(<A HREF="http://www.creativecommons.org/">http://www.creativecommons.org/</A>),
+	y examinar el comentario del HTML generado para observar los
+	metadatos.</P>
+	<LI><P>Probar el validador de licencias Creative Commons
+	(<A HREF="http://validator.creativecommons.org/">http://validator.creativecommons.org/</A>)
+	y examinar el c&oacute;digo fuente RDF de la p&aacute;gina.</P>
+</UL>
+<H2 CLASS="western">SIOC</H2>
+<UL>
+	<LI><P>Examinar la descripci&oacute;n del vocabulario SIOC
+	(<A HREF="http://rdfs.org/sioc/spec/">http://rdfs.org/sioc/spec/</A>)</P>
+	<LI><P>Probar SIOC-explorer (<A HREF="http://www.activerdf.org/sioc/">http://www.activerdf.org/sioc/</A>)</P>
+	<LI><P>Probar Buxon (<A HREF="http://swaml.berlios.de/">http://swaml.berlios.de/</A>).
+	Requiere Python.</P>
+</UL>
+<H2 CLASS="western">EARL</H2>
+<UL>
+	<LI><P>Examinar el c&oacute;digo RDF de un resultado en EARL y
+	compararlo con su representaci&oacute;n gr&aacute;fica
+	(<A HREF="http://vapour.sourceforge.net/demo/report1.rdf">http://vapour.sourceforge.net/demo/report1.rdf</A>
+	, <A HREF="http://vapour.sourceforge.net/demo/report1.html">http://vapour.sourceforge.net/demo/report1.html</A>)</P>
+</UL>
+<H2 CLASS="western">SKOS</H2>
+<UL>
+	<LI><P>Ojear la especificaci&oacute;n del vocabulario
+	(<A HREF="http://www.w3.org/TR/swbp-skos-core-spec/">http://www.w3.org/TR/swbp-skos-core-spec/</A>).</P>
+	<LI><P>Examinar alguno de los tesauros publicados en
+	<A HREF="http://esw.w3.org/topic/SkosDev/DataZone">http://esw.w3.org/topic/SkosDev/DataZone</A>
+	y el directorio SWED (<A HREF="http://www.swed.org.uk/">http://www.swed.org.uk/</A>).</P>
+	<LI><P>Probar el validador de SKOS
+	(<A HREF="http://www.w3.org/2004/02/skos/validation">http://www.w3.org/2004/02/skos/validation</A>).</P>
+</UL>
+<H2 CLASS="western">RDFa</H2>
+<UL>
+	<LI><P>A&ntilde;adir RDFa a una p&aacute;gina XHTML 1.1 ya existente</P>
+	<LI><P>Validar la p&aacute;gina con el validador experimental de W3C
+	(<A HREF="http://validator-test.w3.org/">http://validator-test.w3.org/</A>).</P>
+	<LI><P>Probar los bookmarklets de RDFa
+	(<A HREF="http://www.w3.org/2006/07/SWD/RDFa/impl/js/">http://www.w3.org/2006/07/SWD/RDFa/impl/js/</A>),
+	especialmente el RDFa Highlight y el GetN3.</P>
+	<LI><P>Probar el portapapeles RDFa
+	(<A HREF="http://www.w3.org/2006/07/SWD/RDFa/impl/js/rdfa-clipboard/">http://www.w3.org/2006/07/SWD/RDFa/impl/js/rdfa-clipboard/</A>).</P>
+</UL>
+<H2 CLASS="western">GRDDL</H2>
+<UL>
+	<LI><P>Probar el procesador de GRDDL
+	(<A HREF="http://www.w3.org/2004/01/rdxh/grddl-xml-demo">http://www.w3.org/2004/01/rdxh/grddl-xml-demo</A>)
+	con un documento que contenga GRDDL</P>
+</UL>
+<H2 CLASS="western">DBpedia</H2>
+<UL>
+	<LI><P>Probar alguna de las b&uacute;squedas de ejemplo, como
+	“Personas nacidas en Berl&iacute;n antes de 1900”.</P>
+	<LI><P>Utilizar el “buscador de conexiones”
+	(<A HREF="http://wikipedia.aksw.org/relfinder/">http://wikipedia.aksw.org/relfinder/</A>).
+	Probar “Kevin_Bacon” y “Tom_Cruise”.</P>
+	<LI><P>Enlazar los intereses personales de un fichero FOAF con
+	conceptos de la DBpedia.</P>
+</UL>
+<H2 CLASS="western">Tabulator</H2>
+<UL>
+	<LI><P>Explorar Tabulator (<A HREF="http://www.w3.org/2005/ajar/tab">http://www.w3.org/2005/ajar/tab</A>).
+	Configurar las variables “signed.applets.codebase_principal_support”
+	y <SPAN STYLE="font-weight: medium">“</SPAN><STRONG><SPAN STYLE="font-weight: medium">dom.max_script_run_time
+	value”.</SPAN></STRONG></P>
+	<LI><P>Realizar el tutorial del calendario.</P>
+	<LI><P>Realizar el tutorial del mapa/fotos.</P>
+	<LI><P>Conseguir representar en un mapa lo mismo que con FOAFmap.</P>
+</UL>
+<H2 CLASS="western">Piggy Bank</H2>
+<UL>
+	<LI><P>Instalar y probar Piggy Bank
+	(<A HREF="http://simile.mit.edu/wiki/Piggy_Bank">http://simile.mit.edu/wiki/Piggy_Bank</A>).
+	Echar un vistazo a los videos de demostraci&oacute;n (screencasts).</P>
+	<LI><P>Instalar alg&uacute;n screen scraper adicional.</P>
+	<LI><P>Instalar y usar Solvent (<A HREF="http://simile.mit.edu/wiki/Solvent">http://simile.mit.edu/wiki/Solvent</A>)
+	para programar un nuevo screen scraper.</P>
+</UL>
+<H2 CLASS="western">Semantic Web Client Library</H2>
+<UL>
+	<LI><P>Descargar la SWCL
+	(<A HREF="http://sites.wiwiss.fu-berlin.de/suhl/bizer/ng4j/semwebclient/">http://sites.wiwiss.fu-berlin.de/suhl/bizer/ng4j/semwebclient/</A>)
+	y ejecutar una prueba desde la l&iacute;nea de comandos.</P>
+	<LI><P>Escribir una aplicaci&oacute;n en Java que utilice la SWCL.</P>
+</UL>
+<H2 CLASS="western">D2R</H2>
+<UL>
+	<LI><P>Probar la demo de D2R publicando la base de datos DBLP
+	(<A HREF="http://www4.wiwiss.fu-berlin.de/dblp/">http://www4.wiwiss.fu-berlin.de/dblp/</A>).</P>
+	<LI><P>Descargar D2R
+	(<A HREF="http://sites.wiwiss.fu-berlin.de/suhl/bizer/d2r-server/">http://sites.wiwiss.fu-berlin.de/suhl/bizer/d2r-server/</A>)
+	y utilizarlo para publicar alguna base de datos existente.</P>
+</UL>
+<H2 CLASS="western">ESP Game</H2>
+<UL>
+	<LI><P>&iexcl;&iexcl;Jugar al ESP Game!! (<A HREF="http://www.espgame.org/">http://www.espgame.org/</A>).
+	Google tambi&eacute;n tiene su versi&oacute;n
+	(<A HREF="http://images.google.com/imagelabeler/">http://images.google.com/imagelabeler/</A>).</P>
+	<LI><P>Probar el buscador de im&aacute;genes
+	(<A HREF="http://www.captcha.net/esp-search.html">http://www.captcha.net/esp-search.html</A>)</P>
+</UL>
+</BODY>
+</HTML>

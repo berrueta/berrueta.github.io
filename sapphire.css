@@ -1,0 +1,344 @@
+* { margin: 0; padding: 0; }
+
+body {
+	background: #90abce;
+	text-align: center;
+	margin: 10px 0 0 0;
+	}
+	
+#accessibility {
+	display: none;
+	}
+
+/* -------------------
+Main Structure
+------------------- */
+	
+#frame {
+	width: 782px;
+	text-align: left;
+	margin: 0 auto;
+	background: #21579d url(images/bg_frame.jpg) 0 0 no-repeat;
+	}
+	
+#middle {
+	background: url(images/bg_frame.gif) 0 0 repeat-y;
+	overflow: auto;
+	width: 100%;
+	}
+
+#content {
+	float: left;
+	width: 554px;
+	border-right: 1px solid #98bae6;
+	}
+	
+#sidebar {
+	float: left;
+	width: 187px;
+	padding: 0 20px;
+	}
+	
+/* -------------------
+Header
+------------------- */
+
+#header {
+	height: 110px;
+	}
+	
+#header h1 {
+	width: 367px;
+	float: left;
+	color: #fff;
+	font: 1.2em/50px Arial, Helvetica, sans-serif;
+	letter-spacing: 0.1em;
+	padding: 33px 0 0 25px;
+	}
+	
+#header #nav {
+	width: 300px;
+	float: right;
+	text-align: right;
+	}
+	
+#header #nav ul {
+	list-style: none;
+	padding: 36px 20px 0 0;
+	}
+	
+#header #nav ul li {
+	float: left;
+	}
+	
+#header #nav ul li a {
+	display: block;
+	padding: 0 0.5em;
+	font: 0.75em/30px Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	color: #21579d;
+	}
+	
+#header #nav ul li a:hover {
+	background: #fff;
+	color: #4175b8;
+	}
+	
+#header #nav p {
+	clear: left;
+	padding: 0 25px 0 0;
+	font: 0.75em/34px Arial, Helvetica, sans-serif;
+	}
+	
+#header #nav p a {
+	color: #fff;
+	text-decoration: none;
+	background: url(images/icon_subscribe.gif) right 1px no-repeat;
+	padding: 0 16px 0 0;
+	}
+	
+#header #nav p a:hover {
+	color: #ffd482;
+	background-position: right -47px;
+	}
+	
+/* -------------------
+Content
+------------------- */
+
+#content .post {
+	margin: 0 20px 20px 25px;
+}
+
+#content #archive {
+	margin: 0 20px 20px 25px;
+}	
+
+/* general #content definitions */
+	
+#content h2 {
+	color: #ffd482;
+	font: 1.3em/2em Arial, Helvetica, sans-serif;
+	margin: 0 0 0.3em 0;
+	}
+
+#content h2 a {
+	color: #ffd482;
+	text-decoration: none;
+	}
+
+#content h2 a:hover {
+	text-decoration: underline;
+	}
+	
+#content h3 {
+	font: 1em/2em Arial, Helvetica, sans-serif;
+	color: #fff;
+	margin: 1.1em 0 0.2em 0;
+	font-weight: bold;
+	}
+	
+#content h4 {
+	font: bold 0.9em/1em Arial, Helvetica, sans-serif;
+	color: #a5c1e5;
+	border-left: 1em solid #a5c1e5;
+	padding: 0 0 0 0.5em;
+	margin: 1em 0;
+	}
+	
+#content p, #content li, #content dl {
+	color: #fff;
+	font: 0.85em/1.6em Arial, Helvetica, sans-serif;
+	}
+	
+#content p, #content ul, #content ol, #content dl, #content img {
+	margin: 0 0 0.7em 0;
+	}
+	
+#content li {
+	margin: 0 0 0 30px;
+	}
+	
+#content dl dt {
+	font-weight: bold;
+	}
+	
+#content dl dd {
+	margin: 0 0 0.4em 0.5em;
+	}
+	
+#content blockquote p {
+	margin: 0 0 0 2em;
+	border-left: 1px solid #d3bb88;
+	padding: 0 0 0 1em;
+	color: #d3ddeb;
+}
+	
+#content a { color: #fff; }
+#content a:hover { color: #fff7bd; }
+	
+#content .post ul.post-data {
+	background: #447ac0;
+	border-top: 1px solid #98bae6;
+	list-style: none;
+	font: 0.9em/2em Tahoma, Arial, Helvetica, sans-serif;
+	padding: 0.1em 0 0.2em 0;
+	color: #a5c1e5;
+	margin: 1.3em 0 0 0;
+	}
+
+#content .post ul.post-data li {
+	color: #a5c1e5;
+	}
+	
+#content .post ul.post-data a {
+	text-decoration: none;
+	color: #a5c1e5;
+	}
+	
+#content .post ul.post-data a:hover {
+	color: #fff7bd;
+	}
+
+#content .post ul.post-data li.comments {
+	float: right;
+	margin: 0 0.7em 0 0;
+	display: inline; /* fixes double float bug in IE */
+	}
+	
+#content .post ul.post-data li.comments a {
+	padding: 0 0 0 15px;
+	background: url(images/icon_comments.gif) 0 2px no-repeat;
+	}
+	
+#content .post ul.post-data li.posted {
+	margin: 0 0 0 0.7em;
+	}
+	
+#content .post ul.post-data li.posted a {
+	background: url(images/icon_postdata.gif) 0 2px no-repeat;
+	padding: 0 0 0 13px;
+	}
+	
+#content .post ul.post-data li.comments a:hover, #content .post ul.post-data li.posted a:hover {
+	background-position: 0 -38px;
+	}
+	
+/* -------------------
+Comments
+------------------- */
+
+#content #comments {
+	margin: 0 20px 20px 25px;
+	}
+	
+#content #comments .comment {
+	margin: 0 0 2em 0;
+	}
+	
+#content #comments .comment p, #content #comments .comment li, #content #comments .comment a { color: #a6bcd8;	}
+#content #comments .comment a:hover { color: #fff7bd; }
+	
+#content #comments .comment p {
+	margin: 0 0 0.8em 0;
+	}
+	
+#content #comments .comment .comment-data p {
+	font: 0.7em/2em Tahoma, Arial, Helvetica, sans-serif;
+	color: #7a9ac4;
+	border-top: 1px dashed #4d79b1;
+	border-left: 1px dashed #4d79b1;
+	padding: 0 0 0 22px;
+	background: url(images/icon_commentdata.gif) 6px 6px no-repeat;
+	margin: 1.5em 0 0 0;
+	}
+	
+#content #comments .comment .comment-data p a { color: #7a9ac4; }
+#content #comments .comment .comment-data p a:hover { color: #fff7bd; }
+
+#content #comments form {
+	color: #fff7bd;
+	font: 0.75em/1.6em Arial, Helvetica, sans-serif;
+	}
+
+#content #comments form a { color: #fff7bd; }
+#content #comments form a:hover { color: #fff; }
+	
+	
+/* -------------------
+Sidebar
+------------------- */
+
+
+	
+#sidebar h3 {
+	color: #ffd482;
+	font: 1em/0.8em Arial, Helvetica, sans-serif;
+	margin: 0 0 0.4em 0;
+	}
+	
+#sidebar p, #sidebar li {
+	color: #fff7bd;
+	font: 0.8em/1.5em Tahoma, Arial, Helvetica, sans-serif;
+	}
+	
+#sidebar p, #sidebar ul, #sidebar ol {
+	margin: 0 0 1.2em 0;
+	}
+	
+#sidebar ul { list-style: none; }
+
+#sidebar ul li {
+	background: url(images/bullet_sidebar.gif) 0 6px no-repeat;
+	padding: 0 0 0 11px;
+	}
+	
+#sidebar a {
+	color: #fff7bd;
+	border-bottom: 1px dashed #a6bdc3;
+	text-decoration: none;
+	}
+	
+#sidebar a:hover {
+	color: #fff;
+	border-bottom: 1px solid #fff;
+	}
+	
+/* -------------------
+Footer
+------------------- */
+
+#footer {
+	clear: left;
+	background: url(images/bg_footer.gif) 0 0 no-repeat;
+	height: 71px;
+	}
+	
+#footer #footertext {
+	float: right;
+	color: #b2c4dd;
+	font: 0.75em/1.6em Arial, Helvetica, sans-serif;
+	padding: 36px 30px 0 0;
+	}
+	
+#footer #footertext a {
+	color: #b2c4dd;
+	text-decoration: none;
+	}
+
+#footer #footertext a:hover {
+	color: #fff;
+	text-decoration: underline;
+	}
+	
+#footer #searchform {
+	padding: 33px 0 0 30px;
+	}
+	
+#footer #searchform .searchfield {
+	height: 16px;
+	}
+	
+#footer #searchform .searchbutton {
+	height: 22px;
+	}

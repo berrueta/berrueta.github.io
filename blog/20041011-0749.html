@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head profile="http://www.w3.org/2003/g/data-view">
+
+    <link rel="transformation" href="http://ns.inria.fr/grddl/rdfa/2007/09/19/RDFa2RDFXML.xsl"/>
+
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+
+    <meta name="AUTHOR" content="Diego Berrueta Muñoz" />
+    <meta name="COPYRIGHT" content="Copyright (c) 2007 Diego Berrueta Muñoz" />
+    <meta name="DESCRIPTION" content="Personal home page and blog of Diego Berrueta" />
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss/index.html%3Fsection=blog"/>
+    <link rel="meta" type="application/rdf+xml" title="SIOC" href="http://www.w3.org/2007/08/pyRdfa/extract?uri=http://berrueta.net/blog/20041011-0749"/>
+
+	<link rel="home" title="Home" href="../index.html" />
+
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="../sapphire.css" />
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="../mine.css" />
+
+	<link rel="stylesheet" type="text/css" media="print" href="../sapphireprint.css" />
+
+	<title>Diego Berrueta: 11 Oct 2004: Windows Blues (Windows es azul)</title>
+
+</head>
+
+
+
+<body>
+
+
+
+<div id="frame">
+
+
+
+<div id="accessibility">
+
+	<a href="20041011-0749.html#content" title="Go to content">Go to content</a> 
+
+	<a href="20041011-0749.html#nav" title="Go to navigation">Go to navigation</a> 
+
+</div> <!-- closes #accessibility -->
+
+
+
+<div id="header">
+
+	<h1><a href="../index.html">Diego Berrueta</a></h1>
+
+	<div id="nav">
+
+		<ul>
+
+			<li><a href="../index.html" title="Return to homepage">Home</a></li>
+
+			<li><a href="../blog.html" title="Read blog posts">Blog</a></li>
+
+			<li><a href="http://www.flickr.com/photos/berrueta/" title="Some of my photos">Gallery</a></li>
+
+		</ul>
+
+<!--
+		<p><a href="http://berrueta.net/rss/?section=blog" title="RSS Feed">Subscribe</a></p>
+-->
+
+	</div> <!-- closes #nav -->
+
+</div> <!-- closes #header -->
+
+
+
+<div id="middle">
+
+<div id="content">
+
+	
+
+<div instanceof="sioc:Forum" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" about="http://berrueta.net/blog#berrueta-blog">
+
+	
+		<div class="post" instanceof="sioc:Post" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" about="http://berrueta.net/blog/20041011-0749" >
+
+		<h2><a rel="bookmark" href="20041011-0749.html"><span property="dc:title">11 Oct 2004: Windows Blues (Windows es&#160;azul)</span></a></h2>
+
+		<div property="sioc:content">
+		  <p>(This is a reprint of <a href="http://www.asturlinux.org/comunidad/node/301">the original post</a>)</p><p>En los últimos días me he dedicado fundamentalmente a tres asuntos. En primer lugar, a buscar trabajo. En segundo lugar, a desenladrillar mi PDA. Y por último, a hacer un par de tareas de pringado.</p><p>
+En el segundo frente, el de la PDA, he conseguido avances prometedores. El viernes compré algunos componentes electrónicos, e hice mis pinitos soldando, con lo que conseguí montar el cable JTAG. El sábado restauré algunos ordenadores viejos (486) que tenía por aquí, aunque sólo tuve éxito con uno de ellos. Le instalé <a href="http://delilinux.berlios.de/">una distro poco exigente</a> y luego actualicé a un kernel 2.4. Gracias a eso, he conseguido reanudar la comunicación entre la PDA y el PC, y en concreto, leer la EEPROM. Como la conexión depende de mi pulso, sólo puedo mantenerla durante unos segundos, lo que no me permite aún grabar un nuevo <em>bootloader</em>.</p><p>
+En cuanto a mis labores de pringado, han consistido en un repaso a dos ordenadores familiares, ambos con Windows XP. En los dos casos, me he cogido grandes cabreos. Quizás es que llevo mucho tiempo fuera del mundo de Microsoft, pero sigo sin entender cómo puede haber gente a la que le parezca normal que suceda lo siguiente:</p>
+<!--break-->
+<p>
+<ul></p><p>
+<li>Su ordenador está ejecutando, sin su conocimiento, entre 25 y 30 aplicaciones escondidas bajo nombres de "barra de búsqueda", "asistente para la búsqueda", "optimizador", "acelerador de internet", "parche hotfix", etc. Apuesto a que ninguna de estas aplicaciones es legítima. Más bien me parecen spyware.</li></p><p>
+<li>Algunas de estas aplicaciones, que el usuario no es consciente de haber instalado, aparecen en el cuadro de diálogo de agregar y quitar programas. Pero la mayoría no se pueden desinstalar por este camino. Al intentarlo, nos podemos encontrar con que producen un error en la desinstalación, requieren introducir datos en un formulario web, amenazan con que algunas aplicaciones vitales van a dejar de funcionar, o dicen que ya la aplicación ya se encuentra desinstalada. Incluso aquellos que llegan a completar el proceso de desinstalación, mienten; examinando posteriormente el disco duro, es fácil descubrir que no se han llegado a borrar. ¡Siguen instaladas (y ejecutándose, claro)!</li></p><p>
+<li>El proceso explorer.exe se come el 20% de la CPU incluso cuando no está haciendo absolutamente nada.</li></p><p>
+<li>Al pulsar sobre una dirección de correo en el Internet Explorer, se abre una ventana del Outlook para escribir un nuevo mensaje. Eso tiene sentido. Pero lo que no tiene sentido es que desde ese momento, y hasta después de enviar el mensaje, el Outlook saque cada 20 segundos un mensaje pidiendo que introduzcas un disquete en la unidad A. ¿Qué se le ha perdido al Outlook en un disquete? ¿Por qué da lo mismo que anules, reintentes o canceles, si el comportamiento es el mismo en cualquier caso?</li></p><p>
+<li>Sé que lo de <em>menos es más</em> es un concepto polémico. Pero alguien debería pensar un momento en el aspecto que tiene hoy en día un Windows. Hay decenas de iconos en el escritorio, que están repetidos otra vez en varios sitios del menú Inicio, y también en mini-iconos en el área de lanzamiento rápido de la barra de Windows, o en el área de notificaciones, junto al reloj. El Messenger tiene infinidad de pestañas, menús, enlaces, botones, iconos, banners, etc. Y el Explorer está repleto de barras de herramientas redundantes (eso sí, algunas de estas barras de búsqueda son muy amables y ocultan la clásica barra de direcciones, para que el ingenuo usuario utilice <em>su</em> cuadro de búsqueda). Pero de esto <a href="http://www.asturlinux.org/comunidad/node/view/208">ya hablé</a> anteriormente.</li></p><p>
+<li>Las revistas de informática personal para gente normal (como Computer Hoy y similares) incluyen titulares como estos en la portada: "Limpia tu Windows", "Aprende a reintalar Windows", etc., y aconsejan reinstalar Windows cada trimestre.</li></p><p>
+<li>Aunque no está directamente relacionado con Windows, sí forma parte del despropósito en el que se ha convertido la informática de usuario estos días. No soy el único que piensa que gran parte del valor del web se perdió cuando los informáticos (y técnicos, en general) dejamos de hacer las páginas web, y esa responsabilidad fue transferida a los diseñadores gráficos. Seguro que conocéis muchas páginas que son muy hermosas, llenas de colores bien conjuntados, imágenes, menús con efectos especiales, animaciones e interactividad, pero en las que resulta imposible encontrar la información. Estos días estoy sufriendo muchas de estas páginas, pues las empresas parecen especialmente aficionadas a impresionar de esta forma a sus visitantes. Hoy he tenido que pedir ayuda a Xtrasgu y a NibasH, y ofrecer una recompensa, para conseguir encontrar la dirección del departamento de recursos humanos dentro de una página web. Al margen de que a los usuarios de software libre nos resulte más o menos complicado visitar estas páginas, entre otras cosas por el uso de Flash, la usabilidad es ridícula. El visitante tiene que pasar el ratón por encima de toda la página, para ver cuáles son las "areas calientes", los enlaces, los desplegables, etc. Me recuerda mucho a las aventuras gráficas tipo Monkey Island. El visitante también se enfrenta a menús en movimiento, o el uso irregular de los controles estándar del interfaz de usuario (a los diseñadores gráficos no les gustan las barras de desplazamiento, y siempre inventan mecanismos para sustituirlas, obligando al usuario a aprender a reconocer y usar estos mecanismos). Pero lo que colmó hoy mi paciencia fue una web íntegramente compuesta con Flash, en la que todas las páginas eran parte de la misma animación Flash. No sólo tuve que esperar un rato a que cargara la página, sino que luego no pude navegar por ella de la forma habitual, pues el botón "atrás" del navegador me devolvía a Google, ya que aunque yo iba recorriendo varias páginas, en realidad eran todas parte de la misma. Es un ejemplo más del abuso y deformación de la tecnología, como el que se puso de moda hace un tiempo con los applets de Java. Alguna reflexión más sobre las páginas construidas a base de Flash: ¿cómo piensan sus creadores que Google va a indexarlas y situarlas en las primeras posiciones en los resultados? ¿cuánto dinero se gastará esa empresa en mejorar su posicionamiento en Google? ¿cómo van a poder visitar la página las personas con discapacidades? No creo que los programas de síntesis de voz o de aumento de pantalla se lleven muy bien con los menús animados que hay que perseguir a golpe de ratón.</li></p><p>
+</ul></p>
+		</div>
+
+		<ul class="post-data">
+
+			<li class="comments"></li>
+
+			<li class="posted"><a href="20041011-0749.html">Posted 11 October, 04:49 PM</a><span property="dc:created" content="2004-10-11T16:49:00PDT"/></li>
+
+		</ul>
+		<span rel="sioc:has_container" href="http://berrueta.net/blog#berrueta-blog"/>
+                <span rel="sioc:has_creator" href="http://berrueta.net/blog#berrueta-user"/>
+                <span rel="sioc:link" href="http://berrueta.net/blog/20041011-0749"/>
+                <span property="sioc:id" content="154"/>
+
+	</div>
+
+</div>
+
+<div instanceof="sioc:User" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" 
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" about="http://berrueta.net/blog#berrueta-user">
+  <span property="sioc:name" content="Diego Berrueta"/>
+  <a rel="rdfs:seeAlso" href="../foaf.rdf"/>
+  <a rel="sioc:account_of" href="../foaf.rdf#me"/>
+</div>
+
+</div> <!-- closes #content -->
+
+
+
+<div id="sidebar">
+
+<h3>Menu</h3>
+
+<ul id="menu">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="index.html">Blog</a></li>
+  <li><a href="../research/index.html">Research</a>
+  <ul>
+    <li><a href="../research/publications/index.html">Publications</a></li>
+    <li><a href="../research/projects/index.html">Projects</a></li>
+    <li><a href="../research/phd-research/index.html">PhD</a></li>
+    <li><a href="../research/reviewer/index.html">Reviewer</a></li>
+  </ul>
+  </li>
+  <li><a href="../teaching/index.html">Teaching</a>
+  <ul>
+    <li><a href="../teaching/courses/index.html">Courses</a></li>
+    <li><a href="../teaching/advised-projects/index.html">Advised projects</a></li>
+  </ul>
+  </li>
+  <li><a href="../freesoftware/index.html">Free software</a>
+  <ul>
+    <li><a href="../freesoftware/projects.html">Projects</a></li>
+    <li><a href="../freesoftware/charlas.html">Talks</a></li>
+    <li><a href="../freesoftware/publicaciones.html">Publications</a></li>
+  </ul>
+  </li>
+  <li><a href="../personal/index.html">Personal</a>
+  <ul>
+    <li><a href="http://www.flickr.com/photos/berrueta/">Photos at Flickr</a></li>
+    <li><a href="../personal/people.html">People</a></li>
+    <li><a href="../personal/trips.html">Past and upcoming trips</a></li>
+  </ul>
+  </li>
+</ul>
+
+<h3>Recent posts</h3>
+<ul>
+  <li><a href="new-horizons-new-blog.html" title="New horizons, new&#160;blog">New horizons, new&#160;blog</a></li><li><a href="rdfa-developer-and-trioo.html" title="RDFa Developer and&#160;Trioo">RDFa Developer and&#160;Trioo</a></li><li><a href="steamy.html" title="Steamy">Steamy</a></li><li><a href="xsparql.html" title="XSPARQL">XSPARQL</a></li><li><a href="terras.html" title="TeRRAS">TeRRAS</a></li>
+</ul>
+
+<!--
+<h3>Categories</h3><ul class="category_list">
+	<li><a href="http://berrueta.net/category/Apple/">Apple</a></li>
+	<li><a href="http://berrueta.net/category/Books/">Books</a></li>
+	<li><a href="http://berrueta.net/category/Conferences/">Conferences</a></li>
+	<li><a href="http://berrueta.net/category/Free-Software/">Free Software</a></li>
+	<li><a href="http://berrueta.net/category/Google/">Google</a></li>
+	<li><a href="http://berrueta.net/category/Mountains/">Mountains</a></li>
+	<li><a href="http://berrueta.net/category/Movies/">Movies</a></li>
+	<li><a href="http://berrueta.net/category/Publications/">Publications</a></li>
+	<li><a href="http://berrueta.net/category/Semantic-Web/">Semantic Web</a></li>
+	<li><a href="http://berrueta.net/category/Trips/">Trips</a></li>
+	<li><a href="http://berrueta.net/category/University/">University</a></li>
+</ul>
+-->
+
+<p><a href="../rss/index.html%3Fsection=blog"><img class="feedicon" src="../images/4.png" alt="XML icon"/> Syndicate my blog
+</a></p>
+
+<p><a href="../archive/index.html">Older posts</a></p>
+
+
+</div> <!-- closes #sidebar -->
+
+
+
+</div> <!-- closes #middle -->
+
+
+
+<div id="footer">
+
+	<p id="footertext"><a href="http://validator.w3.org/check?uri=referer">XHTML</a> <a href="http://www.w3.org/2007/08/pyRdfa/extract?uri=referer">with RDFa</a> <!--a href="http://localhost/cgi-bin/RDFa.py?uri=referer">test, don't click here</a--> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | Adapted from a <a href="http://www.kevinpottsdesign.com" title="Kansas City-based web design, graphic design and textpattern expert">design by Kevin Potts</a> | <a href="http://www.graphicpush.com/icons" title="Free Icons and Icon Sets">Icons from graphicPUSH</a> |
+
+	  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img class="ccicon" alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>
+	  (c) Diego Berrueta, 2007. Except otherwise noted, contents are published under a <a
+	    rel="license"
+	    href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons License</a>. Resources listed as publications or projects might be subject to other licenses.
+	</p>
+
+</div>
+
+
+
+</div> <!-- closes #frame -->
+
+
+<!-- Google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2220066-1";
+urchinTracker();
+</script>
+
+</body>
+
+</html>

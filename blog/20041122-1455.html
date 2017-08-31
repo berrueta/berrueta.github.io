@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head profile="http://www.w3.org/2003/g/data-view">
+
+    <link rel="transformation" href="http://ns.inria.fr/grddl/rdfa/2007/09/19/RDFa2RDFXML.xsl"/>
+
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+
+    <meta name="AUTHOR" content="Diego Berrueta Muñoz" />
+    <meta name="COPYRIGHT" content="Copyright (c) 2007 Diego Berrueta Muñoz" />
+    <meta name="DESCRIPTION" content="Personal home page and blog of Diego Berrueta" />
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss/index.html%3Fsection=blog"/>
+    <link rel="meta" type="application/rdf+xml" title="SIOC" href="http://www.w3.org/2007/08/pyRdfa/extract?uri=http://berrueta.net/blog/20041122-1455"/>
+
+	<link rel="home" title="Home" href="../index.html" />
+
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="../sapphire.css" />
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="../mine.css" />
+
+	<link rel="stylesheet" type="text/css" media="print" href="../sapphireprint.css" />
+
+	<title>Diego Berrueta: Mi iBook con Sid, día 0</title>
+
+</head>
+
+
+
+<body>
+
+
+
+<div id="frame">
+
+
+
+<div id="accessibility">
+
+	<a href="20041122-1455.html#content" title="Go to content">Go to content</a> 
+
+	<a href="20041122-1455.html#nav" title="Go to navigation">Go to navigation</a> 
+
+</div> <!-- closes #accessibility -->
+
+
+
+<div id="header">
+
+	<h1><a href="../index.html">Diego Berrueta</a></h1>
+
+	<div id="nav">
+
+		<ul>
+
+			<li><a href="../index.html" title="Return to homepage">Home</a></li>
+
+			<li><a href="../blog.html" title="Read blog posts">Blog</a></li>
+
+			<li><a href="http://www.flickr.com/photos/berrueta/" title="Some of my photos">Gallery</a></li>
+
+		</ul>
+
+<!--
+		<p><a href="http://berrueta.net/rss/?section=blog" title="RSS Feed">Subscribe</a></p>
+-->
+
+	</div> <!-- closes #nav -->
+
+</div> <!-- closes #header -->
+
+
+
+<div id="middle">
+
+<div id="content">
+
+	
+
+<div instanceof="sioc:Forum" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" about="http://berrueta.net/blog#berrueta-blog">
+
+	
+		<div class="post" instanceof="sioc:Post" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" about="http://berrueta.net/blog/20041122-1455" >
+
+		<h2><a rel="bookmark" href="20041122-1455.html"><span property="dc:title">Mi iBook con Sid, día 0</span></a></h2>
+
+		<div property="sioc:content">
+		  <p>(This is a reprint of <a href="http://www.asturlinux.org/comunidad/node/371">the original post</a>)</p><p>Quería haber empezado ayer, pero resultó que me había dejado la imagen ISO de instalación de Debian en el curro. Así que lo que hice ayer fue instalar una Ubuntu. La parte más complicada fue, sin duda, la de particionar el disco. El mac-fdisk es aún más arcano que el entrañable fdisk al que estoy más acostumbrado. Menos mal que contaba con los consejos que me había dado Darod, y con gran cantidad de páginas web (los usuarios de Linux en iBooks somos una comunidad enorme). Una vez superado ese paso, lo demás fue coser y cantar. Con Ubuntu instalada, ya funcionaban de serie un montón de cosas (incluyendo escalado de frecuencia en la CPU, monitor de batería, etc.). No obstante, la configuración de las X que realizó Ubuntu no fue perfecta, aunque lo arreglé rápidamente copiando el XF86Config-4 de una página web. Esto de tener todos el mismo hardware tiene muchas ventajas.</p><p>
+No obstante, lo que yo quería era una Debian. Así que esta tarde recuperé mi ISO y me puse manos a la obra. Con las particiones ya creadas del día anterior, tener el sistema base de Debian funcionando fue cuestión de minutos. La configuración de las X tampoco fue detectada automáticamente, así que apliqué la misma solución que antes.</p><p>
+El primer problema que encontré fue con la configuración del mapa de teclado en consola. Yo me empeñaba en seleccionar (con dpkg-reconfigure console-data) el modelo "Apple USB", hasta que encontré un mensaje en la lista de correo de Bulma. Resulta que el modelo bueno es "pc/qwerty/Spanish/standard/standard". Después instalé pbbuttonsd, gtkpbbuttons y powerpc-utils, para poner a punto las teclas especiales del iBook. No hizo falta más.</p><p>
+En las X, el teclado es un "pc105". Con la herramienta de configuración de teclado de GNOME, activé la opción "Left Win-key to choose 3rd level", y así convertí la tecla "apple" de la derecha en AltGr. También comprobé que la aceleración 3D estaba activada.</p><p>
+A diferencia de Ubuntu, el escalado de frecuencia de la CPU no quedó activado durante la instalación. Lo subsané cargando con modconf los módulos cpufreq_powersave y cpufreq_userspace e instalando el demonio cpudyn. En cuanto a la temperatura del micro, cargar el módulo therm_adt746x fue todo lo que tuve que hacer. Y respecto a la monitorización de la batería, el módulo fue el apm_emu. Agregué al panel de GNOME un monitor de batería y otro para el escalado de frecuencia de la CPU, pero echo de menos uno para monitorizar la temperatura de la CPU y el funcionamiento del ventilador. ¿Acaso no lo hay? Si no existe, no creo que me resulte muy difícil escribir uno, aunque antes preferiría saber si estoy trabajando para nada.</p><p>
+En cuanto al Bluetooth, no tengo dispositivos para comprobar su funcionamiento. Cargué los módulos que indica Skyhusker en <a href="http://zeus.linuxlover.org/~skyhusker/ibook/">su página</a> (que es excelente). Existen unas preciosas herramientas para trabajar con Bluetooth desde GNOME: el llamado <a href="http://usefulinc.com/software/gnome-bluetooth/">GNOME Bluetooth subsystem</a>. No está aún en Sid, pero sí está disponible a tiro de apt en <a href="http://debian.usefulinc.com/">su propio repositorio</a>.</p><p>
+Por último (por hoy), la flamante capacidad de suspensión a RAM todavía no la tengo funcionado. Es necesario recompilar el kernel, cosa que dejo para mañana (nótese que tengo un iBook funcionando con Linux, con OpenOffice, Mozilla, Evolution, etc. y gran soporte del hardware y no he tenido que compilar ni una línea de código. Ya sabéis por quién lo digo :-). También dejo para más adelante la cuestión de probar las diversas salidas de video. Eso será para otra entrada en el blog.</p><p>
+No obstante, no quería terminar sin dejar de agradecer a la comunidad de usuarios de Linux en iBooks, a su delegación española y a su numerosa representación asturiana, que hayan puesto tanta documentación en Internet. Así da gusto.</p>
+		</div>
+
+		<ul class="post-data">
+
+			<li class="comments"></li>
+
+			<li class="posted"><a href="20041122-1455.html">Posted 23 November, 12:55 AM</a><span property="dc:created" content="2004-11-23T00:55:00PST"/></li>
+
+		</ul>
+		<span rel="sioc:has_container" href="http://berrueta.net/blog#berrueta-blog"/>
+                <span rel="sioc:has_creator" href="http://berrueta.net/blog#berrueta-user"/>
+                <span rel="sioc:link" href="http://berrueta.net/blog/20041122-1455"/>
+                <span property="sioc:id" content="173"/>
+
+	</div>
+
+</div>
+
+<div instanceof="sioc:User" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" 
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" about="http://berrueta.net/blog#berrueta-user">
+  <span property="sioc:name" content="Diego Berrueta"/>
+  <a rel="rdfs:seeAlso" href="../foaf.rdf"/>
+  <a rel="sioc:account_of" href="../foaf.rdf#me"/>
+</div>
+
+</div> <!-- closes #content -->
+
+
+
+<div id="sidebar">
+
+<h3>Menu</h3>
+
+<ul id="menu">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="index.html">Blog</a></li>
+  <li><a href="../research/index.html">Research</a>
+  <ul>
+    <li><a href="../research/publications/index.html">Publications</a></li>
+    <li><a href="../research/projects/index.html">Projects</a></li>
+    <li><a href="../research/phd-research/index.html">PhD</a></li>
+    <li><a href="../research/reviewer/index.html">Reviewer</a></li>
+  </ul>
+  </li>
+  <li><a href="../teaching/index.html">Teaching</a>
+  <ul>
+    <li><a href="../teaching/courses/index.html">Courses</a></li>
+    <li><a href="../teaching/advised-projects/index.html">Advised projects</a></li>
+  </ul>
+  </li>
+  <li><a href="../freesoftware/index.html">Free software</a>
+  <ul>
+    <li><a href="../freesoftware/projects.html">Projects</a></li>
+    <li><a href="../freesoftware/charlas.html">Talks</a></li>
+    <li><a href="../freesoftware/publicaciones.html">Publications</a></li>
+  </ul>
+  </li>
+  <li><a href="../personal/index.html">Personal</a>
+  <ul>
+    <li><a href="http://www.flickr.com/photos/berrueta/">Photos at Flickr</a></li>
+    <li><a href="../personal/people.html">People</a></li>
+    <li><a href="../personal/trips.html">Past and upcoming trips</a></li>
+  </ul>
+  </li>
+</ul>
+
+<h3>Recent posts</h3>
+<ul>
+  <li><a href="new-horizons-new-blog.html" title="New horizons, new&#160;blog">New horizons, new&#160;blog</a></li><li><a href="rdfa-developer-and-trioo.html" title="RDFa Developer and&#160;Trioo">RDFa Developer and&#160;Trioo</a></li><li><a href="steamy.html" title="Steamy">Steamy</a></li><li><a href="xsparql.html" title="XSPARQL">XSPARQL</a></li><li><a href="terras.html" title="TeRRAS">TeRRAS</a></li>
+</ul>
+
+<!--
+<h3>Categories</h3><ul class="category_list">
+	<li><a href="http://berrueta.net/category/Apple/">Apple</a></li>
+	<li><a href="http://berrueta.net/category/Books/">Books</a></li>
+	<li><a href="http://berrueta.net/category/Conferences/">Conferences</a></li>
+	<li><a href="http://berrueta.net/category/Free-Software/">Free Software</a></li>
+	<li><a href="http://berrueta.net/category/Google/">Google</a></li>
+	<li><a href="http://berrueta.net/category/Mountains/">Mountains</a></li>
+	<li><a href="http://berrueta.net/category/Movies/">Movies</a></li>
+	<li><a href="http://berrueta.net/category/Publications/">Publications</a></li>
+	<li><a href="http://berrueta.net/category/Semantic-Web/">Semantic Web</a></li>
+	<li><a href="http://berrueta.net/category/Trips/">Trips</a></li>
+	<li><a href="http://berrueta.net/category/University/">University</a></li>
+</ul>
+-->
+
+<p><a href="../rss/index.html%3Fsection=blog"><img class="feedicon" src="../images/4.png" alt="XML icon"/> Syndicate my blog
+</a></p>
+
+<p><a href="../archive/index.html">Older posts</a></p>
+
+
+</div> <!-- closes #sidebar -->
+
+
+
+</div> <!-- closes #middle -->
+
+
+
+<div id="footer">
+
+	<p id="footertext"><a href="http://validator.w3.org/check?uri=referer">XHTML</a> <a href="http://www.w3.org/2007/08/pyRdfa/extract?uri=referer">with RDFa</a> <!--a href="http://localhost/cgi-bin/RDFa.py?uri=referer">test, don't click here</a--> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | Adapted from a <a href="http://www.kevinpottsdesign.com" title="Kansas City-based web design, graphic design and textpattern expert">design by Kevin Potts</a> | <a href="http://www.graphicpush.com/icons" title="Free Icons and Icon Sets">Icons from graphicPUSH</a> |
+
+	  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img class="ccicon" alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>
+	  (c) Diego Berrueta, 2007. Except otherwise noted, contents are published under a <a
+	    rel="license"
+	    href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons License</a>. Resources listed as publications or projects might be subject to other licenses.
+	</p>
+
+</div>
+
+
+
+</div> <!-- closes #frame -->
+
+
+<!-- Google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2220066-1";
+urchinTracker();
+</script>
+
+</body>
+
+</html>
