@@ -4,7 +4,7 @@ title:  "Refreshing my personal website with Github Pages and Jekyll"
 date:   2023-08-19 15:49:29 +1200
 categories: jekyll github technical
 ---
-I created my first personal website around 1996 in the now defunct Geocities. Later I maintained a personal website in asturlinux.org, the local Linux user group that I co-founded. Then I moved to just blogging in blogpost.com and my personal website was no longer maintained. After many years of neglect, today I spent a bit of time setting up a new personal website using Github Pages.
+I created my first personal website around 1996 in the now defunct [Geocities][geocities]. Later I maintained a personal website in [asturlinux.org][asturlinux], the local Linux user group that I co-founded. Then I moved to just blogging in blogpost.com and my personal website was no longer maintained. After many years of neglect, today I spent a bit of time setting up a new personal website using Github Pages.
 
 There is not much to be seen here for now. I may eventually add some content. For now here are some links:
 
@@ -19,3 +19,5 @@ This new website is hosted in Github Pages. A few technical details: the website
 
 [old2007]: /2007/
 [alotroladodelpajares]: https://alotroladodelpajares.blogspot.com/
+[asturlinux]: https://web.archive.org/web/20060101024504/http://www.asturlinux.org/
+[geocities]: https://en.wikipedia.org/wiki/GeoCities

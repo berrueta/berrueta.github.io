@@ -3,8 +3,6 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
+title: Software engineer, space enthusiast, hiker
 ---
 
-[Link to an old (2007) version of the website][old2007]
-
-[old2007]: /2007/
