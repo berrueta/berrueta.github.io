@@ -7,4 +7,4 @@ layout: home
 
 [Link to an old (2007) version of the website][old2007]
 
-[old2007]: /old2007/
+[old2007]: /2007/
