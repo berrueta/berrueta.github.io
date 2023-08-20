@@ -22,9 +22,9 @@ title: Diego Berrueta
 email: diego@berrueta.net
 description: >- # this means to ignore newlines until "baseurl:"
   Personal website of Diego Berrueta
-domain: berrueta.net
+domain: berrueta.github.io
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://berrueta.net" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://berrueta.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  berrueta
 
 # Build settings
