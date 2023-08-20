@@ -2,7 +2,8 @@
 layout: post
 title:  "Refreshing my personal website with Github Pages and Jekyll"
 date:   2023-08-19 15:49:29 +1200
-categories: jekyll github technical
+categories: software
+tags: jekyll github
 ---
 I created my first personal website around 1996 in the now defunct [Geocities][geocities]. Later I maintained a personal website in [asturlinux.org][asturlinux], the local Linux user group that I co-founded. Then I moved to just blogging in blogpost.com and my personal website was no longer maintained. After many years of neglect, today I spent a bit of time setting up a new personal website using Github Pages.
 
