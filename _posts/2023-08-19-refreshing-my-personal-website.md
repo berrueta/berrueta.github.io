@@ -18,7 +18,7 @@ This new website is hosted in Github Pages. A few technical details: the website
 
 * The Jekyll plugin for VSCode was failing to start the Jekyll server, but the error message was not obvious. After a bit of Googling, I discovered that it aparently it needs an additional dependency. I ran `bundle add webrick` and the problem disappeared.
 
-[old2007]: /2007/
+[old2007]: /before2007/
 [alotroladodelpajares]: https://alotroladodelpajares.blogspot.com/
 [asturlinux]: https://web.archive.org/web/20060101024504/http://www.asturlinux.org/
 [geocities]: https://en.wikipedia.org/wiki/GeoCities

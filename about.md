@@ -19,7 +19,7 @@ I'm a very active hiker, and I also practice kayaking, camping and biking.
 
 Use the links at the bottom of this page.
 
-[research]: /2007/research/
-[freesoftware]: /2007/freesoftware/
+[research]: /before2007/research/
+[freesoftware]: /before2007/freesoftware/
 [bitbucket]: https://bitbucket.org/berrueta
 [github]: https://github.com/berrueta
