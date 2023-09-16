@@ -65,6 +65,7 @@ exclude:
 
 navbar-links:
   About Me: "about"
+  Free Software: "free-software"
   # Resources:
   #   - Beautiful Jekyll: "https://beautifuljekyll.com"
   #   - Learn markdown: "https://www.markdowntutorial.com/"
