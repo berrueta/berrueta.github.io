@@ -6,8 +6,6 @@ category: software
 tags: mac zsh terminal
 ---
 
-# My terminal setup
-
 This is not a complete blogpost, just a collection of resources that I use
 to setup my Mac terminal. This document may be updated at anytime.
 
