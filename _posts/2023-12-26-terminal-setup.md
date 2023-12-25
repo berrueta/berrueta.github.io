@@ -6,7 +6,8 @@ category: software
 tags: mac zsh terminal
 ---
 
-This is not a complete blogpost, just a collection of resources that I use
+> **NOTE**
+> This is not a complete blogpost, just a collection of resources that I use
 to setup my Mac terminal. This document may be updated at anytime.
 
 * [Homebrew](https://brew.sh).
