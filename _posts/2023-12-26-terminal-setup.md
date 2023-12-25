@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Terminal setup"
-date:   2023-12-26 15:49:29 +1200
+date:   2023-12-26 10:49:29 +1200
 category: software
 tags: mac zsh terminal
 ---
@@ -9,9 +9,9 @@ tags: mac zsh terminal
 This is not a complete blogpost, just a collection of resources that I use
 to setup my Mac terminal. This document may be updated at anytime.
 
-* Homebrew
+* [Homebrew](https://brew.sh).
 
-* iTerm2: `brew install iterm2`. [Additional color schemes can be downloaded](https://iterm2colorschemes.com).
+* [iTerm2](https://iterm2.com): `brew install iterm2`. [Additional color schemes can be downloaded](https://iterm2colorschemes.com).
 
 * [mackup](https://github.com/lra/mackup) to keep the dotfiles in sync. Install with `brew install mackup`, and then [configure the location of the dotfiles repository](https://github.com/lra/mackup/blob/master/doc/README.md). Then execute `mackup restore` (assuming it is not the first install).
 
