@@ -15,13 +15,7 @@ to setup my Mac terminal. This document may be updated at anytime.
 
 * [mackup](https://github.com/lra/mackup) to keep the dotfiles in sync. Install with `brew install mackup`, and then [configure the location of the dotfiles repository](https://github.com/lra/mackup/blob/master/doc/README.md). Then execute `mackup restore` (assuming it is not the first install).
 
-* [colorls](https://github.com/athityakumar/colorls). Installed as a Ruby gem. Then created an alias in `~/.zshrc` like this:
-
-```zsh
-# colorls can be in multiple locations
-[[ -f /usr/local/bin/colorls ]] && alias ls="/usr/local/bin/colorls"
-[[ -f /usr/local/lib/ruby/gems/3.2.0/bin/colorls ]] && alias ls="/usr/local/lib/ruby/gems/3.2.0/bin/colorls"
-```
+* [colorls](https://github.com/athityakumar/colorls). Installed as a Ruby gem using `gem install colorls --user-install`. Then created an alias in `~/.zshrc` like `[[ -f $HOME/.gem/ruby/3.3.0/bin/colorls ]] && alias ls="$HOME/.gem/ruby/3.3.0/bin/colorls"`.
 
 * [ohmyzsh](https://ohmyz.sh).
 
