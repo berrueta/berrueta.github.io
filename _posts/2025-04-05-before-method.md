@@ -202,8 +202,35 @@ specifically designed for the test class.
 
 ## Acquiring and releasing resources
 
-TODO
+In integration tests, the `@Before` and `@After` methods are also used to acquire
+and release resources, like network or database connections, WireMock servers,
+temporary files or directories, etc. This is a use case that often justifies the
+use of `@Before` and `@After`, but there may be a better option: to use rules
+(in JUnit 4) or extensions (in JUnit 5). There are a number of advantages to
+that. For example, the resource acquisition and release code is separated from
+the test class, which helps with keeping the test class as succinct as possible.
+Also, the resource acquisition and release code can be reused across multiple
+test classes.
+
+A general rule of thumb, if you find yourself writing a `@Before` method without
+a companion `@After` method, the lack of symmetry is a good indication that
+the `@Before` method is unnecessary, because a typical pattern for expensive
+resources is that they need to be released after the test method is executed.
+Releasing resources in unit tests is often overlooked because, contrary to some
+server code, it is assumed that the test code runs for a short period of time.
+However, releasing scarce resources after the test has run can be essential.
+Let's imagine a large Java project with a thousand test methods (the number
+of test classes is irrelevant because, as explained above, JUnit creates a new
+instance of the test class for each test method). If each test method allocates
+an array of 1MB in a field, then to run that whole test suite would require 1GB.
+Because the test runner (Maven Surefire or similar) retains every single instance
+of the test classes in order to produce a final report at the end of the test run,
+that memory cannot be garbage collected, and can lead to an `OutOfMemoryError`.
+In the case of object references, releasing them `@After` the test method
+(for example by setting the reference to `null` to the array can be garbage-collected)
+....
 
 ## Conclusion
 
-TODO ...
+Although writing `@Before` and `@After` methods is a common practice and
+by no means it is a bug, it is often unnecessary.
