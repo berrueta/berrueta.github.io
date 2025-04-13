@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Think @Before you setUp it again: the frequently unnecessary method in JUnit tests"
+title:  "@Before you set(it)Up again: the frequently unnecessary method in JUnit tests"
 date:   2025-04-05 05:49:29 +1200
 category: software
 tags:
