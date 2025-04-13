@@ -30,18 +30,17 @@ to inertia or convention. Similarly, the annotations `@BeforeClass` and `@AfterC
 were introduced to allow the execution of code before and after all test methods.
 
 JUnit 5 was released in 2017, although it took a while for it to be widely adopted
-because it was a major rewrite and because by then millions of Java developers were
-already using JUnit 4 and had collectively written billions of lines of code. One
-of the changes introduced in JUnit 5 was that the `@Before`, `@After`, `@BeforeClass`
+because it was a major rewrite with some important changes to the API and the
+engine. One of the changes introduced in JUnit 5 was that the `@Before`, `@After`, `@BeforeClass`
 and `@AfterClass` annotations were replaced by `@BeforeEach`, `@AfterEach`, `@BeforeAll`
 and `@AfterAll`, respectively. Other than the name change, the semantics of these
 annotations remained the same.
 
 I have been writing and reviewing unit tests for many years, and I have noticed
-that many developers feel the need to write methods with the `@Before` (JUnit 4)
+that many developers feel a compulsion to write methods with the `@Before` (JUnit 4)
 or `@BeforeEach` (JUnit 5) annotation, when in many cases they are unnecessary.
-In this post I will explain how oftentimes you can avoid writing those methods,
-often leading to simpler, more concise and less error-prone test code.
+In the next sections I will explain how oftentimes these methods can be avoided,
+often resulting in simpler, more concise and less error-prone test code.
 
 ## Initialising fields
 
@@ -83,7 +82,7 @@ public class MyTest {
 }
 ```
 
-At this point, some developers raise their eyebrows and object that initialising the
+At this point, some developers raise their eyebrows and point out that initialising the
 field at the point of declaration changes the semantics because now all test methods
 share the same instance of `myClass`. This is a very common misconception which
 I also had at some point. The reality is that the JUnit framework creates a new
@@ -139,9 +138,9 @@ public class MyTest {
 }
 ```
 
-We still have the `@Before` method to set up the mock's behaviour, so let's
+We still have the `@Before` method to set up the mock's behaviour, but we can
 take this one step further. There is no reason the mock programming has to happen
-in the `@Before` method. It can be done in the test method itself, like this:
+in the `@Before` method. It can be done in the test method itself:
 
 ```java
 public class MyTest {
@@ -216,21 +215,51 @@ A general rule of thumb, if you find yourself writing a `@Before` method without
 a companion `@After` method, the lack of symmetry is a good indication that
 the `@Before` method is unnecessary, because a typical pattern for expensive
 resources is that they need to be released after the test method is executed.
-Releasing resources in unit tests is often overlooked because, contrary to some
-server code, it is assumed that the test code runs for a short period of time.
-However, releasing scarce resources after the test has run can be essential.
+Releasing resources in unit tests is often overlooked because, contrary to
+server code, it is assumed that the test code runs for a short period of time
+and therefore it can afford to be wasteful with resources, since the execution
+will finish soon anyway.
+
+However, that assumption is wrong at scale.
+In fact, releasing scarce resources after the test has run may be essential.
 Let's imagine a large Java project with a thousand test methods (the number
 of test classes is irrelevant because, as explained above, JUnit creates a new
 instance of the test class for each test method). If each test method allocates
-an array of 1MB in a field, then to run that whole test suite would require 1GB.
+an array of 1MB and saves it as a field, then to run that whole test suite would require 1GB.
 Because the test runner (Maven Surefire or similar) retains every single instance
 of the test classes in order to produce a final report at the end of the test run,
-that memory cannot be garbage collected, and can lead to an `OutOfMemoryError`.
-In the case of object references, releasing them `@After` the test method
-(for example by setting the reference to `null` to the array can be garbage-collected)
-....
+that memory cannot be garbage collected, and can lead to an `OutOfMemoryError` and
+even before that, to sluggish performance due to excessive garbage collection.
+The solution is easy: in the case of object references, they can be released in
+the `@After` method, for example by setting the reference to `null`,
+so object can be released from the heap. For example:
+
+```java
+public class MyTest {
+    // ...
+    private int[] largeArray;
+
+    @Before
+    public void acquireResources() {
+        largeArray = new int[/*large*/];
+    }
+
+    @After
+    public void releaseResources() {
+        largeArray = null; // allow the array to be garbage-collected
+    }
+}
+```
+
+In this case, since we need to have the `@After` method to release the resource and the
+field cannot be `final`, we can keep the `@Before` method as well for symmetry and to make it
+obvious that the resource is acquired and released. Note that the test methods are descriptive
+of what they do, rather than following the old and obsolete JUnit 3 convention of
+`setUp` and `tearDown`.
 
 ## Conclusion
 
 Although writing `@Before` and `@After` methods is a common practice and
-by no means it is a bug, it is often unnecessary.
+by no means it is a bug, it is often unnecessary. There are some cases where those
+methods can fit well, like when acquiring and releasing resources, but in the most
+common cases they can be substituted.
