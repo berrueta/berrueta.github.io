@@ -117,8 +117,8 @@ public class MyTest {
 }
 ```
 
-Let's first move the object instantiation to the field declaration, which
-I prefer over the use of the Mockito annotations (`@Mock`, `@InjectMocks`, etc.),
+Let's first move the object instantiation to the field declaration, and without
+using the Mockito annotations (`@Mock`, `@InjectMocks`, etc.)
 which [I do not love]({% post_url 2024-08-10-mockito-annotations %}):
 
 ```java
@@ -181,7 +181,7 @@ public class MyTest {
         // ... some test code about MyClass
     }
 
-    private void programMock(String name) {
+    private void givenDependencyNameIs(String name) {
         when(myDependency.getName()).thenReturn(name);
     }
 }
