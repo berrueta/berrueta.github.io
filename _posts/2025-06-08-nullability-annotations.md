@@ -84,7 +84,7 @@ They do not exist unless they are included via a dependency. And as explained ab
 
 In parallel to the JSR 305 annotations, another set of annotations was created in 2009, and unlike the JSR 305,
 the JSR 303 annotations were successfully completed and standardized. The purpose of the JSR 303 annotations is to
-provide a way to express validation constraints on Java beans, such as `@Positive`, `@Min` (for numeric
+provide a way to express runtime validation constraints on Java beans, such as `@Positive`, `@Min` (for numeric
 types), `@Size`, `@NotBlank` (for strings), and crucially for this article, `@NotNull`. Note that `@NotNull` is
 not the same as JSR 305's `@Nonnull`.
 
@@ -154,9 +154,8 @@ Kotlin null-safety, they are a bit unsatisfactory.
 
 However, the Java language continues to evolve. When it was created in the mid 1990s, their designers made the
 controversial decision to include `null` as a valid value of every object reference... but not primitive types like
-`int`, `boolean` and `double`. It is too late to change that now, but there is hope that in the future Java will
-introduce a new type system that is more in line with modern languages like Kotlin, Swift and Rust. There is a
-[JEP proposal](https://openjdk.org/jeps/8316779) that is a stepping stone in the direction of Project Valhalla and
+`int`, `boolean` and `double`. It is too late to change that now, but there is a
+[JEP proposal](https://openjdk.org/jeps/8316779) that derives from Project Valhalla and
 value types. The idea is to introduce type markers to indicate that some (value) types are null-restricted. If this
 comes to fruition, it will not apply to any object reference or to existing code, but it will allow new code to
 be written in a more null-safe way. However, at this point this is just a proposal, and it is not clear
