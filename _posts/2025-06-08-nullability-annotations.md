@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Nullability annotations in Java"
-date:   2025-04-05 05:49:29 +1200
+date:   2025-06-08 05:49:29 +1200
 category: software
 tags:
   - java
@@ -81,16 +81,82 @@ They do not exist unless they are included via a dependency. And as explained ab
 
 # The JSR 303 annotations
 
-...
+In parallel to the JSR 305 annotations, another set of annotations was created in 2009, and unlike the JSR 305,
+the JSR 303 annotations were successfully completed and standardized. The purpose of the JSR 303 annotations is to
+provide a way to express validation constraints on Java beans, such as `@Positive`, `@Min` (for numeric
+types), `@Size`, `@NotBlank` (for strings), and crucially for this article, `@NotNull`. Note that `@NotNull` is
+not the same as JSR 305's `@Nonnull`.
+
+In order to use the JSR 303 annotations, they must be included as a dependency. As other JavaEE dependencies, they
+used to be published under the `javax.validation` package, but then they were moved to the `jakarta.validation`:
+
+```xml
+<dependency>
+    <groupId>jakarta.validation</groupId>
+    <artifactId>jakarta.validation-api</artifactId>
+    <version>3.1.1</version> <!-- latest version as of 2025 -->
+</dependency>
+```
+
+By itself, that dependency only provides the annotations, but it does not change the semantics of the Java language.
+In order to actually use the annotations, a validation engine must be included in the classpath. The most
+popular implementation is Hibernate Validator, which despite its name is not limited to Hibernate, and can be
+used with other Java beans, like Spring MVC models. The validation happens at runtime, and only after the bean
+has been created and populated with data. This means that the validation is not part of the type system, and
+therefore it does not provide compile-time guarantees.
+
+A crucial difference between the JSR 303 annotations and the JSR 305 annotations is the retention policy of
+the annotations. The JSR 303 annotations have a retention policy of `RUNTIME`, which means that they are available
+at runtime for reflection. This is in contrast to the JSR 305 annotations, which have a retention policy of
+`CLASS`, which means that they are saved in the `.class` bytecode file but are not available at runtime,
+and therefore can only be used by static analysis tools.
 
 # The vendor-specific annotations
 
-...
+Due to the lack of a standard, over the years various vendors have created their own nullability annotations. To name a few,
+there is `software.amazon.awssdk.annotations.NonNull` from the AWS SDK, `lombok.NonNull` from the Lombok library,
+`org.eclipse.jdt.annotation.NonNull` from the Eclipse JDT and `org.springframework.lang.NonNull` from the Spring
+Framework. But perhaps the most notable of the vendor-specific annotations are the ones from Jetbrains,
+namely `org.jetbrains.annotations.NotNull` and `org.jetbrains.annotations.Nullable`. The dependency for those is:
+
+```xml
+<dependency>
+    <groupId>org.jetbrains</groupId>
+    <artifactId>annotations</artifactId>
+    <version>26.0.2</version>
+</dependency>
+```
+
+This dependency can be added to any Java project and has no transitive dependencies. The annotations have a retention
+of `RUNTIME`. This means that they can be used by static analysis tools, but also at runtime for reflection. This is
+crucial, because it allows to annotate Java code in a way that simplifies the interoperability with Kotlin. For example,
+a Java class annotated with `@NotNull` can be used in Kotlin without having to use the `!!` operator because Kotlin
+will automatically treat the Java type as non-nullable.
 
 # JSpecify
 
-...
+After more than a decade of confusion, Google rallied many of the main players in the Java ecosystem
+to converge in a standard set of nullability annotations. It took an additional 6 years of deliberation, but in 2024 the
+release 1.0.0 of the JSpecify annotations was announced. The JSpecify annotations are a minimalistic set of nullability
+annotations that have the support of Google (Android, Guava), Jetbrains (IntelliJ, Kotlin), Oracle (Java), Meta,
+Microsoft, and Broadcom (Spring), among others. It also has backing of static analysis tools like SonarQube, NullAway,
+ErrorProne and The Checker Framework. The JSpecify annotations are carefully specified to avoid some of the pitfalls of
+JSR 305. Large projects like Spring Framework have already started to adopt the JSpecify annotations, and if everything
+goes well, they will become the de facto standard for nullability annotations in Java, replacing the failed JSR 305 and
+the many vendor-specific annotations. As of 2025, JSpecify are already the obvious choice for new projects.
 
 # The future of Java
 
-...
+The JSpecify annotations are a step in the right direction, but they are not a complete solution. They do not
+change the semantics of the Java language, and therefore they do not provide compile-time guarantees. Compared to
+Kotlin null-safety, they are a bit unsatisfactory.
+
+However, the Java language continues to evolve. When it was created in the mid 1990s, their designers made the
+controversial decision to include `null` as a valid value of every object reference... but not primitive types like
+`int`, `boolean` and `double`. It is too late to change that now, but there is hope that in the future Java will
+introduce a new type system that is more in line with modern languages like Kotlin, Swift and Rust. There is a
+[JEP proposal](https://openjdk.org/jeps/8316779) that is a stepping stone in the direction of Project Valhalla and
+value types. The idea is to introduce type markers to indicate that some (value) types are null-restricted. If this
+comes to fruition, it will not apply to any object reference or to existing code, but it will allow new code to
+be written in a more null-safe way. However, at this point this is just a proposal, and it is not clear
+when or if it will be implemented.
