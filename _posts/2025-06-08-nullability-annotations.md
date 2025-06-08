@@ -12,7 +12,7 @@ tags:
 
 In 1965, Tony Hoare was designing ALGOL W, a structured programming language that was a significant step forward
 over low level assembly languages, and that would eventually evolve in to Pascal in the 1970s. Its influence
-can be felt in many languages through a lineage of languages that includes C, C++, Java, Python and many others.
+can be felt in many languages through a lineage that includes C, C++, Java, Python and many others.
 But a fateful decision was made in the design of ALGOL W that would haunt programmers for decades to come:
 the invention of `null` references. That was 60 years ago. Since then, `null` references have caused
 countless headaches, bugs and security vulnerabilities.
@@ -22,7 +22,8 @@ the tradition of `null` references. And once they were baked into the language, 
 them. It took another 20 years for the Java language to take baby steps towards a solution in the form of
 the `Optional` class, which was introduced in Java 8. However, `Optional` is not a magic bullet, and to this
 day, Java programmers still have to deal with `null` references. This is a consequence of the strict backwards
-compatibility of the Java language. However, `null` references are not a necessary evil, as many other languages
+compatibility of the Java language. However, `null` references are not a necessary evil and can be
+managed, as many other languages
 have shown. Modern mainstream languages like Rust, Swift and Kotlin have shown that is it possible to
 design a language that still feels like C/C++ or Java, but has a safe approach to nullabiliy. Of those, Kotlin
 is particularly notable because it is a JVM language that is interoperable with Java, showing a remarkable
