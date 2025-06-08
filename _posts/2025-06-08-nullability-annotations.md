@@ -48,9 +48,9 @@ nullability annotations. Even before the JSR was completed, the FindBugs annotat
 `javax.annotation` package, and that is the origin of `javax.annotation.Nullable` and `javax.annotation.Nonnull`.
 
 However, the JSR was never completed and thus the annotations were never standardized. The JSR has been in
-a dormant state for 20 years. Therefore, the despite their official-looking name, those annotations are not part
+a dormant state for 20 years. Therefore, the despite their official-looking package name, those annotations are not part
 of the Java specifications, and therefore they lack any official standing. The only way to get them is to
-include a dependency. However, to make things more complicated, FindBugs had a complicated history. For a while
+include a dependency. Furthermore, FindBugs had a complicated history. For a while
 it was hosted in SourceForge, and its binary artifacts were published under the Maven `packageId` of
 `net.sourceforge.findbugs` (note that Maven `packageId` did not match the Java package name). Later the source code
 moved to Google Code (both SourceForge and Google Code were predecessors to GitHub), and the binary artifacts were
