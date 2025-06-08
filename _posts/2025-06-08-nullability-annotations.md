@@ -76,7 +76,7 @@ above, or the original FindBugs annotations under `edu.umd.cs.findbugs.annotatio
 twist, basically a 180 turn, because those annotations were declared "deprecated" by FindBugs when they were (perhaps prematurely)
 moved to `javax.annotation` 20 years ago, but now they have been reinstated by SpotBugs.
 
-There is a common myth that the `javax.annotation.Nullable` and sibling `NotNull` annotations have a special
+There is a common myth that the `javax.annotation.Nullable` and sibling `Nonnull` annotations have a special
 standing in Java, when in fact they do not. They are just annotations like any other that you and me can create.
 They do not exist unless they are included via a dependency. And as explained above, they are basically abandonware.
 
