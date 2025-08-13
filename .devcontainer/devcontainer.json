@@ -1,6 +1,6 @@
 {
   "name": "Jekyll Blog Codespace",
-  "image": "mcr.microsoft.com/devcontainers/ruby:3.2-bullseye",
+  "image": "mcr.microsoft.com/devcontainers/ruby:3.3-bullseye",
   "features": {},
   "customizations": {
     "vscode": {
@@ -8,7 +8,8 @@
       "extensions": [
         "rebornix.Ruby",
         "bung87.rails",
-        "editorconfig.editorconfig"
+        "editorconfig.editorconfig",
+        "dedsec727.jekyll-run" 
       ]
     }
   },
