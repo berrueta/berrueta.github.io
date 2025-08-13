@@ -1,0 +1,23 @@
+{
+  "name": "Jekyll Blog Codespace",
+  "image": "mcr.microsoft.com/devcontainers/ruby:3.2-bullseye",
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "rebornix.Ruby",
+        "bung87.rails",
+        "editorconfig.editorconfig"
+      ]
+    }
+  },
+  "forwardPorts": [4000],
+  "postCreateCommand": "bundle install",
+  "portsAttributes": {
+    "4000": {
+      "label": "Jekyll server",
+      "onAutoForward": "notify"
+    }
+  }
+}
