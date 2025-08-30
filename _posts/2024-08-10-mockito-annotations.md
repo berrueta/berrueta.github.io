@@ -65,7 +65,7 @@ class WidgetControllerTest {
 
 The test fails:
 
-```
+```console
 Cannot invoke "WidgetService.getWidget()" because "this.widgetService" is null
 ```
 
@@ -124,7 +124,7 @@ rewriting the constructor to use `Objects.requireNonNull`:
 That way, the test will fail immediately after the refactoring, regardless of whether
 the unit test has 100% coverage or not:
 
-```
+```console
 org.mockito.exceptions.misusing.InjectMocksException: 
 Cannot instantiate @InjectMocks field named 'widgetController' of type 'class WidgetController3'.
 You haven't provided the instance at field declaration so I tried to construct the instance.
@@ -141,7 +141,7 @@ That clear failure serves a reminder to update the test and add:
 
 Still, this is not perfect. If later on the `FeatureFlagService` stops being useful
 and it is removed from `WidgetController`, the test will still pass. Other than explicit
-verifications of the number of calls to the mocks, which are often neglected, 
+verifications of the number of calls to the mocks, which are often neglected,
 nothing will remind us to remove the mock from the test and its associated programming.
 
 Another problem with `@InjectMocks` is that it is limited regarding what it can inject.
@@ -173,7 +173,7 @@ The question is: where should we put that line? We have several options:
   requires a new method to be added to the test class.
 * At the beginning of the `@Test` method. However, if we have multiple
   test methods, we have to repeat the line in each one.
-* In the field declaration: this is the most concise, but when combined 
+* In the field declaration: this is the most concise, but when combined
   with the `@Mock` annotation, it leads to errors like this:
 
 ```java

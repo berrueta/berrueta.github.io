@@ -13,7 +13,7 @@ In its 30 years of life, the Java language has earned a reputation for being
 forward compatible. This means that code written for an older version of Java can
 be generally compiled and run on a newer version of the Java runtime. This characteristic
 of the language makes it very appropriate for enterprise software, where applications
-tend to have long lifetimes and are often maintained for many years. It is also appreciated 
+tend to have long lifetimes and are often maintained for many years. It is also appreciated
 by library developers, who can target a wide range of versions of Java without
 having to change the code, contrary to the dramas that other languages have
 suffered. This stability comes at a price, namely the slow pace of language evolution.
@@ -51,10 +51,10 @@ $ java -version
 openjdk version "11.0.25" 2024-10-15 LTS
 
 $ java HelloWorld
-Error: LinkageError occurred while loading main class H
-	java.lang.UnsupportedClassVersionError: HelloWorld has been compiled by a more recent version
-	of the Java Runtime (class file version 65.0), this version of the Java Runtime only
-	recognizes class file versions up to 55.0
+Error: LinkageError occurred while loading main class HelloWorld
+  java.lang.UnsupportedClassVersionError: HelloWorld has been compiled by a more recent version
+  of the Java Runtime (class file version 65.0), this version of the Java Runtime only
+  recognizes class file versions up to 55.0
 ```
 
 We can instruct the `javac` compiler to produce bytecode compatible with the JVM 11 by specifying the `-target` option:
@@ -139,7 +139,7 @@ It does compile. However, when we try to run it with Java 11, we get a runtime e
 # Now we switch to Java 11
 $ java LastOfList
 Exception in thread "main" java.lang.NoSuchMethodError: 'java.lang.Object java.util.List.getLast()'
-	at LastOfList.main(LastOfList.java:5)
+  at LastOfList.main(LastOfList.java:5)
 ```
 
 This is disappointing. Nobody likes runtime errors! The problem is that code was

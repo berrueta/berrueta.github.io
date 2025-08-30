@@ -21,7 +21,7 @@ The common theme of the two pull requests was that they both contained unit test
 class, and that they made assumptions about the speed at which the code runs compared to the internal
 clock of the system, resulting in flaky tests.
 
-# Problem 1: Assuming that the code runs fast enough
+## Problem 1: Assuming that the code runs fast enough
 
 In the first pull request, the developer had written a complex test, but in order to illustrate the
 problem, let's consider a massively simplified version of the test:
@@ -121,7 +121,7 @@ validity.
 For those reasons, every time I see a call to `Instant.now()` in a test, I immediately start suspecting that
 the test may be flaky, and I start thinking about how to eliminate that call and use a constant time instead.
 
-# Problem 2: Assuming that the code runs slowly enough
+## Problem 2: Assuming that the code runs slowly enough
 
 The second pull request was representative of the opposite problem to the one described above. In order
 to understand this second problem, let's assume we have a class of `Widget`s, and a `WidgetRepository` that stores them. For the sake
@@ -253,7 +253,7 @@ The proper fix is to decouple the code from the real time, replacing the static 
 making assumptions about the speed of the code or the precision of the system clock.
 The details of how to do that are enough for a separate post.
 
-# Conclusion
+## Conclusion
 
 Writing tests that use time can be tricky, because they can easily become flaky if we make assumptions
 about the speed at which the code runs or the precision of the system clock. The main takeaways from this post are:
@@ -265,3 +265,4 @@ about the speed at which the code runs or the precision of the system clock. The
 
 * Avoid static calls to `Instant.now()` in production code, because it makes the code harder to test.
   Instead, use an injectable `Clock` that can be controlled by the tests.
+  

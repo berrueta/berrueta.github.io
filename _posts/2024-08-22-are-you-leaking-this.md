@@ -102,7 +102,7 @@ class ObserverTest {
 
 The test passes, and the print statements produce the expected output:
 
-```
+```console
 Event received by observer 0
 Event received by observer 1
 ```
@@ -116,14 +116,14 @@ observers to a `HashSet`:
 
 We run the test again, and this time it fails:
 
-```
+```console
 Expected :1
 Actual   :0
 ```
 
 and the print statements produce the following output:
 
-```
+```console
 Event received by observer 0
 ```
 
@@ -131,7 +131,7 @@ Looks like somehow the observer 1 did not receive the event. Our first thought m
 we made a mistake implementing the `equals/hashCode`. Let's add a couple of assertions to the
 test:
 
-```
+```console
 assertNotEquals(observer0, observer1);
 assertNotEquals(observer0.hashCode(), observer1.hashCode());
 ```
