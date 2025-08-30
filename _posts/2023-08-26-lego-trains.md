@@ -27,7 +27,7 @@ somewhere else.
 * LEGO PowerUp trains (Bluetooth enabled). Note that previous LEGO PowerFunctions trains did not use Bluetooth.
 * LEGO round magnets (part 73092). At least as many magnets as train engines.
 * LEGO-compatible automated track switches using servo motors. I used the [ones sold by 4DBrix](https://www.4dbrix.com/products/train/track-switch-motor/).
-* KY-003 Hall effect sensors. As many as blocks in the track. 
+* KY-003 Hall effect sensors. As many as blocks in the track.
 * MCP23017 16-bit I/O port.
 * PCA9685 12-bit PWM/Servo driver.
 * Raspberry Pi. I used Raspberry Pi Zero, but other models should work too.
@@ -57,7 +57,7 @@ To avoid collisions, the control system ensures that only one train occupies a b
 blocks must be longer than the trains, with generous buffer to account of the imprecision of the control system.
 
 The following diagram represents a possible track that consists of 4 blocks, 4 sensors and 1 automated switch.
-In this circuit, trains always move in clockwise direction. 
+In this circuit, trains always move in clockwise direction.
 
 ![Diagram of a possible track](https://bytebucket.org/berrueta/trains/raw/c1a710505efbfc9d1d1e195826a49b7df33fb554/docs/track.png)
 
@@ -75,7 +75,7 @@ They must be used where the track forks. They are not strictly required when the
 train will be able to merge even if the switch rails are not aligned with the train direction.
 
 A switch should be preceded by a sensor, to allow the trains to stop just before the switch in case its destination
-block is busy. 
+block is busy.
 
 ![Picture of an automated track switch](https://bytebucket.org/berrueta/trains/raw/c1a710505efbfc9d1d1e195826a49b7df33fb554/docs/IMG_6901.jpeg)
 
@@ -98,7 +98,7 @@ switch is depicted in the diagram, but more of them can be connected as necessar
 
 Note that the MCP23017 and PCA9685 must use different addresses in the I2C bus.
 
-An optional push button provides a convenient way to reset the state of the routing system. 
+An optional push button provides a convenient way to reset the state of the routing system.
 
 ## Software
 
@@ -216,7 +216,6 @@ it is composed of a number of reactive Lambda functions.
 
 1. Run the application: ```sam local start-api```
 
-
 ### Deploying the SAM application
 
 1. Define an S3 bucket name: ```export BUCKET_NAME=berrueta-trains-deployment```
@@ -228,7 +227,6 @@ it is composed of a number of reactive Lambda functions.
 1. Deploy it: ```aws cloudformation deploy --template-file packaged.yml --stack-name TrainStack1```
 
 1. Optionally, you can use ```aws cloudformation describe-stack-events --stack-name TrainStack1``` to see the CloudWatch activity.
-
 
 ### Registering the thing with AWS IoT Core
 
@@ -250,7 +248,6 @@ to `embedded/certs`.
 }
 ```
 
-
 ### Running the embedded applications
 
 1. Copy the directory `embedded` to the Raspberry Pi.
@@ -267,18 +264,17 @@ to `embedded/certs`.
 
 1. In another SSH terminal, run the application that monitors the sensors: ```sudo python3.7 sensors.py```
 
-
 ### Trello control dashboard
 
 The UI to give orders (i.e., set the destination) to the trains has been built as a Trello board. In this board
 there is a list for each of the blocks in the track. Trains are represented as cards. Moving a card to a different
-list sets the desired destination for that train. 
+list sets the desired destination for that train.
 
 ![Screenshot of a Trello board with trains located under lists that represents blocks](https://bytebucket.org/berrueta/trains/raw/c1a710505efbfc9d1d1e195826a49b7df33fb554/docs/trello-board.png)
 
 The train card description includes the Bluetooth ID of the train, so it can be matched against the model in the
 `trains` table in Dynamodb. Other attributes of the card, like the title, the pictures and the labels are purely
-for informative and decorative purposes. 
+for informative and decorative purposes.
 
 ![Screenshot of a Trello card showing the details of a train](https://bytebucket.org/berrueta/trains/raw/c1a710505efbfc9d1d1e195826a49b7df33fb554/docs/trello-card.png)
 
